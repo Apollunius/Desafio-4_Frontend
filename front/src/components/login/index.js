@@ -1,3 +1,4 @@
+import "./style.css";
 import React from "react";
 import logo from "../assets/logo.svg";
 import hide from "../assets/hide.svg";
@@ -18,7 +19,7 @@ export function Login() {
               <label>
                 <div className="title">Senha</div>
                 <div className="password"><input type="password" />
-				<a><img src={hide} alt="esconder" /></a></div>
+				<a className="hide"><img src={hide} alt="esconder" /></a></div>
 				
               </label>
               <div className="subtitle">Esqueci minha senha</div>

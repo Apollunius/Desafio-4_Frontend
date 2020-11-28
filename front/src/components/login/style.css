@@ -49,7 +49,7 @@ body {
 .password {
   position: relative;
 }
-a {
+.hide {
   position: absolute;
   bottom: 40%;
   right: 0;
