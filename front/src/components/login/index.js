@@ -68,13 +68,16 @@ export function Cadastro() {
                 </a>
               </div>
             </label>
+            <div className="send-login">
             <button>Criar conta</button>
+            </div>
+            
           </form>
         </div>
       </div>
       <div className="join">
         {" "}
-        Já possui uma conta? <span href="#">Acesse agora!</span>
+        Já possui uma conta? <a href="#">Acesse agora!</a>
       </div>
     </div>
   );
