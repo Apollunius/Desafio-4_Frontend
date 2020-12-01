@@ -14,7 +14,7 @@ export function Login() {
             <form>
               <label>
                 <div className="title">E-mail</div>
-                <input type="email" placeholder="exemplo@gmail.com" />
+                <input className="title-input" type="email" placeholder="exemplo@gmail.com" />
               </label>
               <label>
                 <div className="title">Senha</div>
@@ -22,14 +22,18 @@ export function Login() {
 				<a className="hide"><img src={hide} alt="esconder" /></a></div>
 				
               </label>
-              <div className="subtitle">Esqueci minha senha</div>
-              <button>Enviar</button>
+              <div className="subtitle">
+                <a href="">Esqueci minha senha</a>
+              </div>
+              <div className="send-login">
+                <button>Enviar</button>
+              </div>
             </form>
           </div>
         </div>
         <div className="join"> 
           {" "}
-          Não tem uma conta? <span href="#">Cadastre-se!</span>
+          Não tem uma conta? <a href="#">Cadastre-se!</a>
         </div>
       </div>
     );
