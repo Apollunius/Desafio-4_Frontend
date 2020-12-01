@@ -5,7 +5,7 @@ function App() {
   
   return (
     <div>
-      <Cadastro></Cadastro>
+      <Home></Home>
     </div>
   );
 }
