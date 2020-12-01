@@ -1,0 +1,17 @@
+
+.label > .title {
+	color: #374952;
+	font-size: 1.2rem;
+	font-weight: 600;
+	text-align: start;
+	margin: 1em;
+  }
+
+.label > .input {
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	padding: 1em 4em 1em 1.5em;
+	margin-bottom: 1em;
+	font-size: 0.9rem;
+  }
