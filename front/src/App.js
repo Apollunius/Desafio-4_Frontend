@@ -1,12 +1,12 @@
 import { BarraLateral } from "./components/barra lateral";
-import { Home } from "./components/home";
+import { CriarCobranca } from "./components/criar-cobranca";
 import { Cadastro, Login } from "./components/login";
 
 function App() {
   
   return (
     <div>
-      <Home></Home>
+      <CriarCobranca></CriarCobranca>
     </div>
   );
 }

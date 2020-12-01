@@ -2,8 +2,10 @@ import "./style.css";
 import React from "react";
 import pic from "../assets/pic.svg";
 import { BarraLateral } from "../barra lateral";
+import CurrencyInput from "./CurrencyInput";
 
-export function Home() {
+
+export function CriarCobranca() {
   return (
     <div className="main">
       <BarraLateral></BarraLateral>
@@ -30,7 +32,7 @@ export function Home() {
             <div className="valor-e-vencimento">
               <label>
                 Valor
-                <input type="number" placeholder="R$ 0,00"/>
+                <CurrencyInput type="text" placeholder="R$ 0,00"/>
               </label>
               <label className="separador">
                 Vencimento
