@@ -9,36 +9,36 @@ export function Home() {
       <BarraLateral></BarraLateral>
       <div className="conteudo">
         <div className="header">
-          <div>// CRIAR COBRANÇA</div>
-          <img src={pic} alt="foto do perfil de usuário" />
+          <span className="title-cobranca">// CRIAR COBRANÇA</span>
+          <img className="perfil" src={pic} alt="foto do perfil de usuário" />
         </div>
         <div className="formulario">
           <form>
             <label>
               Clientes
-              <select name="Selecione o Cliente">
-                <option value="cliente 1"> Cliente 1</option>
-                <option value="cliente 2"> Cliente 2</option>
-                <option value="cliente 3"> Cliente 3</option>
-                <option value="cliente 4"> Cliente 4</option>
-                <option value="cliente 5"> Cliente 5</option>
+              <select required className="select-cobranca">
+                <option className="select-option" value="" disabled selected hidden> Selecione a cliente</option>
+                <option className="select-option" value="cliente 1"> Cliente 1</option>
+                <option className="select-option" value="cliente 2"> Cliente 2</option>
               </select>
             </label>
             <label>
               Descrição
-              <input type="text"></input>
-              <span>Essa descrição será impressa no boleto</span>
+              <textarea className="descricao" rows="5" cols="30"></textarea>
+              <span className="detalhe-descricao">Essa descrição será impressa no boleto</span>
             </label>
-            <label>
-              Valor
-              <input type="number" />
-            </label>
-            <label>
-              Vencimento
-              <input type="date" />
-            </label>
-            <div>
-              <button>Cancelar</button> <button>Criar cobrança</button>
+            <div className="valor-e-vencimento">
+              <label>
+                Valor
+                <input type="number" placeholder="R$ 0,00"/>
+              </label>
+              <label className="separador">
+                Vencimento
+                <input type="date" />
+              </label>
+            </div>
+            <div className="buttons">
+              <button className="button-1">Cancelar</button> <button className="button-2">Criar cobrança</button>
             </div>
           </form>
         </div>

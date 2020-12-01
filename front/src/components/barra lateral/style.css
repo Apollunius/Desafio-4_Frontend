@@ -1,6 +1,6 @@
 .menuLateral {
   background-color: #263238;
-  padding: 2em 0.75em 2em 0.25em;
+  padding: 2em 2em 2em 1.75em;
   padding-bottom: 25em;
   min-height: 100%;
 }
@@ -10,7 +10,7 @@
 }
 .menuLateral button {
   background-color: #da0175;
-  padding: 0.75em 3.95em;
+  padding: 0.85em 4.5em;
   color: white;
   border: 0;
   border-radius: 20px;
