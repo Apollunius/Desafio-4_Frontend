@@ -17,19 +17,19 @@ export function BarraLateral() {
             <li>
               <a href="#">
                 <img src={home} alt="Início" />
-                Home
+                <span>HOME</span>
               </a>
             </li>
             <li>
               <a href="#">
                 <img src={cobrancas} alt="Início" />
-                Cobranças
+                COBRANÇAS
               </a>
             </li>
             <li>
               <a href="#">
                 <img src={users} alt="Início" />
-                Clientes
+                CLIENTES
               </a>
             </li>
           </ul>

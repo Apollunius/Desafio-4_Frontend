@@ -1,22 +1,40 @@
 .menuLateral {
-	background-color: #263238;
-	padding: 2em 3em;
-	padding-bottom: 25em;
-	min-height: 100%;
-  }
-  .menuLateral button {
-	background-color: #da0175;
-	padding: 0.2em 6em;
-	color: white;
-	border: 0;
-	border-radius: 20px;
-	justify-content: center;
-	margin-top: 15em;
-  }
-  .menuLateral a {
-	display: flex;
-	font-size: 700;
-	color: #ffffff;
-	text-decoration: none;
-	/* height: 100%; */
-  }
+  background-color: #263238;
+  padding: 2em 0.75em 2em 0.25em;
+  padding-bottom: 25em;
+  min-height: 100%;
+}
+.logo {
+  margin-bottom: 4.5em;
+  margin-left: 2.75em;
+}
+.menuLateral button {
+  background-color: #da0175;
+  padding: 0.75em 3.95em;
+  color: white;
+  border: 0;
+  border-radius: 20px;
+  text-align: center;
+  margin: 16em 1em 0em;
+  font-size: 14px;
+  font-weight: 600;
+}
+.menuLateral a {
+  display: flex;
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 17px;
+  color: #ffffff;
+  text-decoration: none;
+  align-items: center;
+  /* height: 100%; */
+}
+ul {
+  margin-left: 2.75em;
+}
+ul li:first-child {
+  padding-left: 0.2em;
+}
+ul li:first-child span {
+  padding-left: 0.225em;
+}

@@ -18,10 +18,7 @@ body {
   position: relative;
   padding-bottom: 4em;
 }
-.logo {
-  text-align: center;
-  margin-bottom: 2em;
-}
+
 .login input {
   border-top: none;
   border-left: none;
