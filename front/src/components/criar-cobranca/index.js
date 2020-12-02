@@ -31,11 +31,11 @@ export function CriarCobranca() {
             <div className="valor-e-vencimento">
               <label>
                 Valor
-                <CurrencyInput type="text" placeholder="R$ 0,00"/>
+                <CurrencyInput className="input-cobranca" type="text" placeholder="R$ 0,00"/>
               </label>
               <label className="separador">
                 Vencimento
-                <input type="date" />
+                <input className="input-cobranca" type="date" />
               </label>
             </div>
             <div className="buttons">
