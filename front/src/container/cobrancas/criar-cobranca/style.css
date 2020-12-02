@@ -33,6 +33,8 @@ textarea {
   margin-top: 0.5em;
   border-radius: 8px;
   border: 1px solid #374952;
+  max-width: 900px;
+  min-width: 400px;
 }
 .select-option {
   border-radius: 8px;
@@ -67,11 +69,10 @@ label {
 }
 .buttons {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 .buttons button {
   padding: 0.75em 3.95em;
-
   border-radius: 20px;
   text-align: center;
   font-size: 14px;

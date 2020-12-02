@@ -1,11 +1,11 @@
 import "./style.css";
 import React from "react";
-import pic from "../assets/pic.svg";
-import vector from "../assets/Vector.svg";
+import pic from "../../../assets/pic.svg";
+import search from "../../../assets/search.svg";
+import vector from "../../../assets/Vector.svg";
 import { BarraLateral } from "../../../components/barra lateral";
-import CurrencyInput from "./CurrencyInput";
 
-export function CriarCobranca() {
+export function ListarCobranca() {
     return (
         <div className="main">
             <BarraLateral></BarraLateral>
@@ -13,28 +13,38 @@ export function CriarCobranca() {
                 <div className="header">
                     <div className="saldo">
                         <div>
-                            <span className="cifrao">$</span>
+                            <img src={vector}className="cifrao" />
                             <span>Saldo em conta</span>
                         </div>
                         <span className="saldo-em-conta">R$ 0,00</span>
                     </div>
                     <img className="perfil" src={pic} alt="foto do perfil de usuário" />
                 </div>
-                <form>
+                <form className="busca-listar-cobranca">
                     <input type="text" placeholder="Procurar por Nome, E-mail ou CPF" required/>
-                    <button>
-                        <img src={vector} alt="lupa" />
+                    <button className="botao-listar-cobranca">
+                        <img src={search} alt="lupa" />
                         Buscar
                     </button>
                 </form>
-                <div>
-                    <span>Cliente</span>
-                    <span>Descrição</span>
-                    <span>Valor</span>
-                    <span>Status</span>
-                    <span>Vencimento</span>
-                    <span>Boleto</span>
-                </div>
+                <table>
+                    <tr>
+                        <td>Cliente</td>
+                        <td>Descrição</td>
+                        <td>Valor</td>
+                        <td>Status</td>
+                        <td>Vencimento</td>
+                        <td>Boleto</td>
+                    </tr>
+                    <tr>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                    </tr>
+                </table>
              </div>
         </div>
     );
