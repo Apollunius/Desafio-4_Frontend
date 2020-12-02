@@ -1,5 +1,5 @@
 import { BarraLateral } from "./components/barra lateral";
-import { CriarCobranca } from "./components/criar-cobranca";
+import { CriarCobranca } from "./container/cobrancas/criar-cobranca";
 import { Cadastro, Login } from "./container/login";
 
 function App() {

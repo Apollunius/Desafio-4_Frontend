@@ -1,8 +1,8 @@
 import React from "react";
-import home from "../assets/home.svg";
-import cobrancas from "../assets/cobrancas.svg";
-import users from "../assets/users.svg";
-import logo from "../assets/logo2.svg";
+import home from "../../assets/home.svg";
+import cobrancas from "../../assets/cobrancas.svg";
+import users from "../../assets/users.svg";
+import logo from "../../assets/logo2.svg";
 import "./style.css";
 
 export function BarraLateral() {

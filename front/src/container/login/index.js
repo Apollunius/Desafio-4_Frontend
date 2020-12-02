@@ -1,7 +1,7 @@
 import "./style.css";
 import React from "react";
-import logo from "../assets/logo.svg";
-import hide from "../assets/hide.svg";
+import logo from "../../assets/logo.svg";
+import hide from "../../assets/hide.svg";
 import Input from "../../components/input";
 
 function fazerRequisicaoComBody(url, metodo, conteudo, token) {
