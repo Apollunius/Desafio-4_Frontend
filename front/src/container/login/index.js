@@ -2,9 +2,23 @@ import "./style.css";
 import React from "react";
 import logo from "../assets/logo.svg";
 import hide from "../assets/hide.svg";
-import Input from "../input";
+import Input from "../../components/input";
 
-export function Login() {
+function fazerRequisicaoComBody(url, metodo, conteudo, token) {
+    return fetch(url, {
+      method: metodo,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token && `Bearer ${token}`,
+      },
+      body: JSON.stringify(conteudo),
+    });
+  }
+
+export function Login(props) {
+	const [email, setEmail] = React.useState("");
+    const [senha, setSenha] = React.useState("");
+    const { token, setToken } = props;
   return (
     <div className="center">
       <div className="login">
@@ -12,16 +26,37 @@ export function Login() {
           <img src={logo} alt="logo"></img>
         </div>
         <div>
-          <form>
+          <form onSubmit={(event) => {
+              event.preventDefault();
+              fazerRequisicaoComBody(
+                `http://localhost:8081/auth`,
+                "POST",
+                {
+                  email,
+                  senha,
+                }
+              )
+                .then((res) => res.json())
+                .then((respostaJson) => {
+				  const novoToken = respostaJson.dados.token;
+				  console.log(novoToken)
+                  setToken(novoToken);
+                  setEmail("");
+                  setSenha("");
+                });
+            }}>
             <Input
               title="E-mail"
               type="email"
-              placeholder="email@email.com"
-            ></Input>
+			  placeholder="email@email.com"
+			  value="email"
+			  onInput={(event) => setEmail(event.target.value)}
+            >
+			</Input>
             <label>
               <div className="title">Senha</div>
               <div className="password">
-                <input type="password" />
+                <input type="password" onInput={(event) => setSenha(event.target.value)} />
                 <a className="hide">
                   <img src={hide} alt="esconder" />
                 </a>
