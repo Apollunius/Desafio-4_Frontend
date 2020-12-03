@@ -3,7 +3,7 @@ import React from "react";
 import logo from "../../assets/logo.svg";
 import hide from "../../assets/hide.svg";
 import Input from "../../components/input";
-import { ButtonPrimary } from "../../components/button";
+import { Button } from "../../components/button";
 
 function fazerRequisicaoComBody(url, metodo, conteudo, token) {
     return fetch(url, {
@@ -67,7 +67,7 @@ export function Login(props) {
               <a href="">Esqueci minha senha</a>
             </div>
             <div className="send-login">
-              <ButtonPrimary>Enviar</ButtonPrimary>
+              <Button name='primary'>Entrar</Button>
             </div>
           </form>
         </div>
