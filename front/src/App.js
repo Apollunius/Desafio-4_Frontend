@@ -19,6 +19,7 @@ function App() {
 			<Route exact path='/cobrancas' component={ListarCobranca} />
 			<Route exact path='/clientes' component={ListarClientes} />
 			<Route exact path='/cobrancas/criar' component={CriarCobranca} />
+			<Route exact path='/clientes/adicionar' component={AdicionarCliente} />
 		</Switch>
 		</BrowserRouter>
       

@@ -17,7 +17,9 @@ export function ListarClientes() {
             <div className="conteudo">
                 <Header className="header-branco"></Header>
                 <div className="pesquisa-e-adicionar">
-                    <Button name="secondary"> Adicionar cliente</Button>
+				<form method='get' action='/cobrancas/criar'>
+		<Button name='secondary' type='submit'>Adicionar cliente</Button>
+		</form>
                     <form className="busca-listar-cobranca">
                         <input className="input-busca" type="text" placeholder="Procurar por Nome, E-mail ou CPF" required/>
                         <button className="botao-listar-cobranca">
