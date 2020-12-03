@@ -1,14 +1,17 @@
 import "./style.css";
 import React from "react";
+import { Link } from 'react-router-dom';
+import { BarraLateral } from "../../../components/barra lateral";
+import { Button } from "../../../components/button";
+import { Header } from "../../../components/header";
+
 import pic from "../../../assets/pic.svg";
 import search from "../../../assets/search.svg";
 import vector from "../../../assets/Vector.svg";
 import email from "../../../assets/email.svg";
 import tel from "../../../assets/tel.svg";
 import edit from "../../../assets/edit.svg";
-import { BarraLateral } from "../../../components/barra lateral";
-import { Button } from "../../../components/button";
-import { Header } from "../../../components/header";
+
 
 export function ListarClientes() {
     return (
@@ -17,9 +20,9 @@ export function ListarClientes() {
             <div className="conteudo">
                 <Header className="header-branco"></Header>
                 <div className="pesquisa-e-adicionar">
-				<form method='get' action='/cobrancas/criar'>
+				<Link to='/cobrancas/criar'>
 		<Button name='secondary' type='submit'>Adicionar cliente</Button>
-		</form>
+		</Link>
                     <form className="busca-listar-cobranca">
                         <input className="input-busca" type="text" placeholder="Procurar por Nome, E-mail ou CPF" required/>
                         <button className="botao-listar-cobranca">
@@ -60,9 +63,9 @@ export function ListarClientes() {
                             <td>R$1000,00</td>
                             <td>EM DIA</td>
                             <td>
-                                <a href="/clientes/editar">
+                                <Link to="/clientes/editar">
                                     <img src={edit}/>
-                                </a>
+                                </Link>
                             </td>
                         </tr>
                     </tbody>

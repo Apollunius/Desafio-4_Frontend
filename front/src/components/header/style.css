@@ -62,4 +62,5 @@
 .logout button{
 	background-color: #FFFFFF;
 	border: none;
+	outline: none;
 }

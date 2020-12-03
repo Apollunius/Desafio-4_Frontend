@@ -1,10 +1,12 @@
 import React from "react";
+import "./style.css";
+import { Button } from "../button";
+import { Link } from "react-router-dom";
+
 import home from "../../assets/home.svg";
 import cobrancas from "../../assets/cobrancas.svg";
 import users from "../../assets/users.svg";
 import logo from "../../assets/logo2.svg";
-import "./style.css";
-import { Button } from "../button";
 
 export function BarraLateral() {
   return (
@@ -16,28 +18,28 @@ export function BarraLateral() {
         <nav>
           <ul>
             <li>
-            <a href="/">
+            <Link to="/">
                 <img src={home} alt="Início" />
                 <span>HOME</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/cobrancas">
+              <Link to="/cobrancas">
                 <img src={cobrancas} alt="Cobranças" />
                 COBRANÇAS
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/clientes">
+              <Link to="/clientes">
                 <img src={users} alt="Clientes" />
                 CLIENTES
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
-		<form method='get' action='/cobrancas/criar'>
+		<Link to='/cobrancas/criar'>
 		<Button name='primary' type='submit'>Criar cobrança</Button>
-		</form>
+		</Link>
         
       </div>
     </div>

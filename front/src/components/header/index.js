@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 import vector from "../../assets/Vector.svg";
 import pic from "../../assets/pic.svg";
-import logout from '../../assets/log-out.svg'
+import logout from "../../assets/log-out.svg";
+
 export function Header(props) {
   const [click, setClick] = useState(true);
 
@@ -14,7 +16,9 @@ export function Header(props) {
       ) : (
         <div className="saldo">
           <div>
-            <img src={vector} className="cifrao" />
+            <Link to="/">
+              <img src={vector} className="cifrao" />
+            </Link>
             <span>Saldo em conta</span>
           </div>
           <span className="saldo-em-conta">R$ 0,00</span>
@@ -28,13 +32,13 @@ export function Header(props) {
           alt="foto do perfil de usuário"
         />
         {!click ? (
-          <div className='logout'>
-			  <img src={logout} />
-            <button>
-              Deslogar
-            </button>
-			{/* onClick={() => setToken(null)} className="btnLogin" */}
-          </div>
+          <Link to="/login">
+            <div className="logout">
+              <img src={logout} />
+              <button type="reset">Deslogar</button>
+              {/* onClick={() => setToken(null)} className="btnLogin" */}
+            </div>
+          </Link>
         ) : undefined}
       </div>
     </div>
