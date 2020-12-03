@@ -4,6 +4,7 @@ import cobrancas from "../../assets/cobrancas.svg";
 import users from "../../assets/users.svg";
 import logo from "../../assets/logo2.svg";
 import "./style.css";
+import { Button } from "../button";
 
 export function BarraLateral() {
   return (
@@ -15,26 +16,29 @@ export function BarraLateral() {
         <nav>
           <ul>
             <li>
-              <a href="#">
+            <a href="/">
                 <img src={home} alt="Início" />
                 <span>HOME</span>
               </a>
             </li>
             <li>
-              <a href="#">
-                <img src={cobrancas} alt="Início" />
+              <a href="/cobrancas">
+                <img src={cobrancas} alt="Cobranças" />
                 COBRANÇAS
               </a>
             </li>
             <li>
-              <a href="#">
-                <img src={users} alt="Início" />
+              <a href="/clientes">
+                <img src={users} alt="Clientes" />
                 CLIENTES
               </a>
             </li>
           </ul>
         </nav>
-        <button>Criar cobrança</button>
+		<form method='get' action='/cobrancas/criar'>
+		<Button name='primary' type='submit'>Criar cobrança</Button>
+		</form>
+        
       </div>
     </div>
   );
