@@ -125,7 +125,7 @@
 .tabela-cliente-itens td {
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
 }
 .tabela-cliente-itens td img {
   margin-right: 0.5em;
