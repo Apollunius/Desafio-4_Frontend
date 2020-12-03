@@ -52,7 +52,7 @@ export function ListarCobranca() {
                 </table>
                 <div className="mudar-pagina">
                     <a href="#" className="pagina voltar">
-                        &#60
+                        &#60;
                     </a>
                     <a href="#" className="pagina">
                         1
@@ -61,7 +61,7 @@ export function ListarCobranca() {
                         2
                     </a>
                     <a href="#" className="pagina avancar">
-                        &#62
+                        &#62;
                     </a>
                 </div>
              </div>
