@@ -44,7 +44,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin: 4em 3.5em;
+  margin: 4em;
 }
 .botao-listar-cobranca {
   margin-top: 0.5em;
@@ -60,11 +60,18 @@
   min-width: 9em;
   margin-right: 1em;
 }
-tr:first-child {
+thead {
   background-color: #9dbbc3;
   color: white;
+  font-size: 14px;
+}
+.tabela-body {
+  margin-top: 10px;
 }
 tr {
+  max-width: 75vw;
+}
+tbody > tr {
   font-size: 14px;
   background-color: rgba(255, 255, 255, 0.932);
 }
@@ -72,10 +79,21 @@ table {
   margin: 3em;
   border-collapse: collapse;
 }
-td {
+td,
+th {
   height: 2.5em;
-  padding: 0em 6em;
+  padding: 1em 4.15vw;
   border: none;
+}
+td:first-child,
+th:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+td:last-child,
+th:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 .conteudo {
   background-color: #f7f7f7;
@@ -85,4 +103,16 @@ td {
 
 .perfil {
   margin-right: 5.5em;
+}
+.mudar-pagina {
+  display: flex;
+  justify-content: flex-end;
+  margin: 3em 5em;
+}
+.pagina {
+  padding-right: 1em;
+  font-size: 12px;
+  color: #667e87;
+  letter-spacing: 0.25px;
+  text-decoration: none;
 }
