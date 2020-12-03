@@ -1,32 +1,10 @@
-* {
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
-}
-.main {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-}
-.header {
-  display: flex;
-  justify-content: space-between;
-}
-.conteudo {
-  background-color: #f7f7f7;
-  height: 90vh;
-  width: 85vw;
-}
-.title-cobranca {
-  font-size: 1.5rem;
-  padding: 3.25em 0em 1em 4em;
-}
 .formulario {
   margin: 0em 6.5em 0em 6.5em;
   padding: 3em 20em;
   background-color: white;
   border-radius: 1em;
 }
-input,
+.input-cobranca,
 .select-cobranca,
 textarea {
   padding: 0.75em 1.25em;
@@ -71,29 +49,6 @@ label {
   display: flex;
   justify-content: flex-end;
 }
-.buttons button {
-  padding: 0.75em 3.95em;
-  border-radius: 20px;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 600;
-  margin-top: 1em;
-}
-.button-1 {
-  margin-right: 1em;
-  background-color: white;
-  color: #da0175;
-  border: 1px solid #da0175;
-}
-.button-2 {
-  color: white;
-  border: 0;
-  background-color: #f186d1;
-}
-.perfil {
-  margin-right: 5.5em;
-}
-
 li img {
   margin-right: 2em;
   align-self: center;
@@ -105,4 +60,7 @@ li {
 ul {
   margin-top: 3em;
   padding: 0;
+}
+#btn-margin{
+  margin-left: 2em;
 }

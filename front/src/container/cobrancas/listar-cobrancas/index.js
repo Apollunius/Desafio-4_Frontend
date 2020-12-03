@@ -5,22 +5,14 @@ import search from "../../../assets/search.svg";
 import vector from "../../../assets/Vector.svg";
 import printer from "../../../assets/printer.svg";
 import { BarraLateral } from "../../../components/barra lateral";
+import { Header } from "../../../components/header";
 
 export function ListarCobranca() {
     return (
         <div className="main">
             <BarraLateral></BarraLateral>
             <div className="conteudo">
-                <div className="header">
-                    <div className="saldo">
-                        <div>
-                            <img src={vector} className="cifrao" />
-                            <span>Saldo em conta</span>
-                        </div>
-                        <span className="saldo-em-conta">R$ 0,00</span>
-                    </div>
-                    <img className="perfil" src={pic} alt="foto do perfil de usuário" />
-                </div>
+                <Header className="header-branco"></Header>
                 <form className="busca-listar-cobranca">
                     <input type="text" placeholder="Procurar por Nome, E-mail ou CPF" required/>
                     <button className="botao-listar-cobranca">

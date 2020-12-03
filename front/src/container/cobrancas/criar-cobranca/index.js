@@ -3,16 +3,15 @@ import React from "react";
 import pic from "../../../assets/pic.svg";
 import { BarraLateral } from "../../../components/barra lateral";
 import CurrencyInput from "./CurrencyInput"
+import { Header } from "../../../components/header";
+import { ButtonPrimary, ButtonSecondary } from "../../../components/button";
 
 export function CriarCobranca() {
   return (
     <div className="main">
       <BarraLateral></BarraLateral>
       <div className="conteudo">
-        <div className="header-cobranca">
-          <span className="title-cobranca">// CRIAR COBRANÇA</span>
-          <img className="perfil" src={pic} alt="foto do perfil de usuário" />
-        </div>
+        <Header name="// CRIAR COBRANÇA" className="header"></Header>
         <div className="formulario">
           <form>
             <label>
@@ -39,7 +38,7 @@ export function CriarCobranca() {
               </label>
             </div>
             <div className="buttons">
-              <button className="button-1">Cancelar</button> <button className="button-2">Criar cobrança</button>
+            <ButtonSecondary>Cancelar</ButtonSecondary> <ButtonPrimary id="btn-margin">Criar cobrança</ButtonPrimary>
             </div>
           </form>
         </div>

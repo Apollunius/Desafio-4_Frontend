@@ -11,7 +11,7 @@ function App() {
   
   return (
     <div>
-      <Home></Home>
+      <ListarClientes></ListarClientes>
     </div>
   );
 }

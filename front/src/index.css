@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+.main {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+.conteudo {
+  background-color: #f7f7f7;
+  height: 90vh;
+  width: 85vw;
+}

@@ -7,26 +7,19 @@ import email from "../../../assets/email.svg";
 import tel from "../../../assets/tel.svg";
 import edit from "../../../assets/edit.svg";
 import { BarraLateral } from "../../../components/barra lateral";
+import { ButtonSecondary } from "../../../components/button";
+import { Header } from "../../../components/header";
 
 export function ListarClientes() {
     return (
         <div className="main">
             <BarraLateral></BarraLateral>
             <div className="conteudo">
-                <div className="header">
-                    <div className="saldo">
-                        <div>
-                            <img src={vector}className="cifrao" />
-                            <span>Saldo em conta</span>
-                        </div>
-                        <span className="saldo-em-conta">R$ 0,00</span>
-                    </div>
-                    <img className="perfil" src={pic} alt="foto do perfil de usuário" />
-                </div>
+                <Header className="header-branco"></Header>
                 <div className="pesquisa-e-adicionar">
-                    <button className="adicionar-cliente">Adicionar cliente</button>
+                    <ButtonSecondary>Adicionar cliente</ButtonSecondary>
                     <form className="busca-listar-cobranca">
-                        <input type="text" placeholder="Procurar por Nome, E-mail ou CPF" required/>
+                        <input className="input-procurar" type="text" placeholder="Procurar por Nome, E-mail ou CPF" required/>
                         <button className="botao-listar-cobranca">
                             <img src={search} alt="lupa" />
                             Buscar
