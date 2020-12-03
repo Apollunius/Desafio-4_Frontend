@@ -15,7 +15,7 @@ export function ButtonPrimary(props) {
   );
 }
 
-export function ButtonSecundary(props) {
+export function ButtonSecondary(props) {
   return (
     <button
       className="padrao2"

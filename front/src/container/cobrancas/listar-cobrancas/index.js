@@ -14,7 +14,7 @@ export function ListarCobranca() {
                 <div className="header">
                     <div className="saldo">
                         <div>
-                            <img src={vector}className="cifrao" />
+                            <img src={vector} className="cifrao" />
                             <span>Saldo em conta</span>
                         </div>
                         <span className="saldo-em-conta">R$ 0,00</span>

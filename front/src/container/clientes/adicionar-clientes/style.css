@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+.main {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+.header-cliente {
+  display: flex;
+  justify-content: space-between;
+}
+.conteudo {
+  background-color: #f7f7f7;
+  height: 90vh;
+  width: 85vw;
+}
+.title-cliente {
+  font-size: 1.5rem;
+  padding: 3.25em 0em 1em 4em;
+}
+.formulario-clientes {
+  margin: 0em 6.5em 0em 6.5em;
+  padding: 3em 20em;
+  background-color: white;
+  border-radius: 1em;
+  width: 1420px;
+}
+.input-cliente-nome,
+.input-cliente-email {
+  padding: 0.75em 1.25em;
+  margin-top: 0.5em;
+  border-radius: 8px;
+  border: 1px solid #374952;
+  width: 780px;
+}
+.form-clientes {
+  width: 780px;
+}
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 2em;
+}
+.cpf-e-telefone {
+  display: flex;
+}
+.cpf-e-telefone .separador {
+  margin-left: 1em;
+}
+.cpf-e-telefone .separador input {
+  padding: 0.64em 1.25em;
+}
+.cpf-e-telefone input {
+  min-width: 380px;
+}
+.buttons-clientes {
+  display: flex;
+  justify-content: flex-end;
+}
+.perfil {
+  margin-right: 5.5em;
+}

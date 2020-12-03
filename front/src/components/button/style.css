@@ -1,35 +1,38 @@
-.padrao{
-    background-color: #da0175;
-    padding: 0.9em 4.3em;
-    color: white;
-    border: 0;
-    border: 1 solid #da0175;
-    white-space: nowrap;
-    border-radius: 20px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 600;
+.padrao {
+  background-color: #da0175;
+  padding: 0.9em 4.3em;
+  color: white;
+  border: 0;
+  border: 1 solid #da0175;
+  white-space: nowrap;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
 }
-.padrao:disabled{
-    background-color: rgba(218, 1, 117, 0.35);
-    padding: 0.9em 4.3em;
-    color: white;
-    border: 0;
-    border: 1 solid #da0175;
-    white-space: nowrap;
-    border-radius: 20px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 600;
+.padrao:disabled {
+  background-color: rgba(218, 1, 117, 0.35);
+  padding: 0.9em 4.3em;
+  color: white;
+  border: 0;
+  border: 1 solid #da0175;
+  white-space: nowrap;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
 }
-.padrao2{
-    background-color: white;
-    padding: 0.8em 4.2em;
-    color: #DA0175;
-    white-space: nowrap;
-    border-radius: 20px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 600;
-    border: 2px solid #DA0175
+.padrao2 {
+  background-color: white;
+  padding: 0.8em 4.2em;
+  color: #da0175;
+  white-space: nowrap;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  border: 2px solid #da0175;
+}
+#espaco {
+  margin-right: 1.5em;
 }

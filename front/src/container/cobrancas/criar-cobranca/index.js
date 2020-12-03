@@ -9,7 +9,7 @@ export function CriarCobranca() {
     <div className="main">
       <BarraLateral></BarraLateral>
       <div className="conteudo">
-        <div className="header">
+        <div className="header-cobranca">
           <span className="title-cobranca">// CRIAR COBRANÇA</span>
           <img className="perfil" src={pic} alt="foto do perfil de usuário" />
         </div>

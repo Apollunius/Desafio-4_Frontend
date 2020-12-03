@@ -1,42 +1,40 @@
 import "./style.css";
 import React from "react";
-import pic from "../../assets/pic.svg";
+import pic from "../../../assets/pic.svg";
 import { BarraLateral } from "../../../components/barra lateral";
-// import CurrencyInput from "./CurrencyInput";
+import { ButtonPrimary, ButtonSecondary} from "../../../components/button";
 
-
-export function CriarCliente() {
+export function AdicionarCliente() {
   return (
     <div className="main">
       <BarraLateral></BarraLateral>
       <div className="conteudo">
-        <div className="header">
+        <div className="header-cliente">
           <span className="title-cliente">// ADICIONAR CLIENTE</span>
           <img className="perfil" src={pic} alt="foto do perfil de usuário" />
         </div>
-        <div className="formulario">
-          <form>
+        <div className="formulario-clientes">
+          <form className="form-clientes">
             <label>
               Nome
-              <input type="text" className="inputNome"/>
+              <input className="input-cliente-nome" type="text"/>
             </label>
             <label>
-              Email
-              <input className="inputEmail" type="email" />
-             
+              E-mail
+              <input className="input-cliente-email" type="email"/>
             </label>
             <div className="cpf-e-telefone">
               <label>
                 CPF
-				<input className="inputCPF" type="text" maxlength="14"  placeholder="000.000.000-00"/>
+                <input className="input-cliente-cpf" type="text"/>
               </label>
               <label className="separador">
                 Telefone
-                <input className="inputTelefone" type="tel" />
+                <input className="input-cliente-telefone" type="tel" />
               </label>
             </div>
-            <div className="buttons">
-              <button className="button-1">Cancelar</button> <button className="button-2">Adicionar Cliente</button>
+            <div className="buttons-clientes">
+              <ButtonSecondary id="espaco" type="button">Cancelar</ButtonSecondary> <ButtonPrimary>Adicionar Cliente</ButtonPrimary>
             </div>
           </form>
         </div>
