@@ -1,48 +1,65 @@
 .header-branco {
-    display: flex;
-    justify-content: space-between;
-    height: 12em;
-    background-color: white;
-  }
-  .header {
-    display: flex;
-    justify-content: space-between;
-    height: 12em;
-    align-items: flex-end;
-  }
-  .header-branco, .header img {
-    padding-top: 1em;
-    padding-right: 2.5em;
-    align-self: flex-start;
-  }
-  .saldo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0em 4em 1em 1em;
-    margin: 4em;
-    background-color: #374952;
-    color: white;
-    border-radius: 8px;
-    font-size: 14px;
-    box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.1);
-  }
-  .cifrao {
-    font-weight: bold;
-    margin: 0em 1em;
-  }
-  .saldo > span {
-    margin-top: 0.25em;
-    font-weight: 600;
-    font-size: 20px;
-  }
-  .title-header {
-    font-size: 1.5rem;
-    padding: 3.25em 0em 1em 4em;
-    margin-left: 0.5em;
-  }
-  .perfil{
-      align-self: flex-start;
-  }
+  display: flex;
+  justify-content: space-between;
+  height: 12em;
+  background-color: white;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 12em;
+  align-items: flex-end;
+}
+.header-branco,
+.header img {
+  padding-top: 1em;
+  padding-right: 2.5em;
+  align-self: flex-start;
+}
+.saldo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0em 4em 1em 1em;
+  margin: 4em;
+  background-color: #374952;
+  color: white;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.1);
+}
+.cifrao {
+  font-weight: bold;
+  margin: 0em 1em;
+}
+.saldo > span {
+  margin-top: 0.25em;
+  font-weight: 600;
+  font-size: 20px;
+}
+.title-header {
+  font-size: 1.5rem;
+  padding: 3.25em 0em 1em 4em;
+  margin-left: 0.5em;
+}
+.perfil {
+  align-self: flex-start;
+  position: relative;
+}
+.logout {
+  position: absolute;
+  bottom: -3.5em;
+  left: -6em;
+  color: #323232;
+  font-size: 1rem;
+  display: flex;
+  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 1em;
+}
+.logout button{
+	background-color: #FFFFFF;
+	border: none;
+}
