@@ -9,13 +9,11 @@
     justify-content: space-between;
     height: 12em;
     align-items: flex-end;
-    max-width: 50em;
   }
   .header-branco, .header img {
     padding-top: 1em;
-    padding-right: .5em;
+    padding-right: 2.5em;
     align-self: flex-start;
-
   }
   .saldo {
     display: flex;
