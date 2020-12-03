@@ -68,6 +68,9 @@ thead {
 .tabela-body {
   margin-top: 10px;
 }
+tr {
+  max-width: 75vw;
+}
 tbody > tr {
   font-size: 14px;
   background-color: rgba(255, 255, 255, 0.932);
@@ -79,7 +82,7 @@ table {
 td,
 th {
   height: 2.5em;
-  padding: 1em 6em;
+  padding: 1em 4.15vw;
   border: none;
 }
 td:first-child,
