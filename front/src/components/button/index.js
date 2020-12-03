@@ -1,27 +1,14 @@
 import React from "react";
 import "./style.css";
 
-export function ButtonPrimary(props) {
+export function Button(props) {
   return (
     <button
-      className="padrao"
+      className={props.name === "primary" ? "padrao" : "padrao2"}
       id={props.id}
       type={props.type}
       onClick={props.onClick}
       disabled={props.disabled}
-    >
-      {props.children}
-    </button>
-  );
-}
-
-export function ButtonSecondary(props) {
-  return (
-    <button
-      className="padrao2"
-      id={props.id}
-      type={props.type}
-      onClick={props.onClick}
     >
       {props.children}
     </button>
