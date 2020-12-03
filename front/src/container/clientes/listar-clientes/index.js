@@ -59,7 +59,11 @@ export function ListarClientes() {
                             <td>R$1000,00</td>
                             <td>R$1000,00</td>
                             <td>EM DIA</td>
-                            <td><img src={edit}/></td>
+                            <td>
+                                <a href="/clientes/editar">
+                                    <img src={edit}/>
+                                </a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
