@@ -44,7 +44,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin: 4em;
+  margin: 4em 4em 1em 4em;
 }
 .botao-listar-cobranca {
   margin-top: 0.5em;
@@ -60,7 +60,7 @@
   min-width: 9em;
   margin-right: 1em;
 }
-thead {
+.tabela-listar-cliente thead {
   background-color: #9dbbc3;
   color: white;
   font-size: 14px;
@@ -68,30 +68,31 @@ thead {
 .tabela-body {
   margin-top: 10px;
 }
-tr {
+.tabela-listar-cliente tr {
   max-width: 75vw;
 }
-tbody > tr {
+.tabela-listar-cliente tbody > tr {
   font-size: 14px;
   background-color: rgba(255, 255, 255, 0.932);
 }
-table {
+.tabela-listar-cliente {
   margin: 3em;
   border-collapse: collapse;
+  text-align: start;
 }
-td,
-th {
+.tabela-listar-cliente td,
+.tabela-listar-cliente th {
   height: 2.5em;
-  padding: 1em 4.45vw;
+  padding: 0.5em 4.45vw 0em 1em;
   border: none;
 }
-td:first-child,
-th:first-child {
+.tabela-listar-cliente td:first-child,
+.tabela-listar-cliente th:first-child {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
 }
-td:last-child,
-th:last-child {
+.tabela-listar-cliente td:last-child,
+.tabela-listar-cliente th:last-child {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 }
@@ -115,4 +116,38 @@ th:last-child {
   color: #667e87;
   letter-spacing: 0.25px;
   text-decoration: none;
+}
+.tabela-cliente-itens {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1em;
+}
+.tabela-cliente-itens td {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+.tabela-cliente-itens td img {
+  margin-right: 0.5em;
+}
+.tabela-cliente-nome {
+  font-weight: bold;
+}
+.adicionar-cliente {
+  margin-right: 1em;
+  background-color: white;
+  color: #da0175;
+  border: 1px solid #da0175;
+  padding: 0.75em 3.95em;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 1em;
+}
+.pesquisa-e-adicionar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 3em;
 }
