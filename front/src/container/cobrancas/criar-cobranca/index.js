@@ -4,7 +4,7 @@ import pic from "../../../assets/pic.svg";
 import { BarraLateral } from "../../../components/barra lateral";
 import CurrencyInput from "./CurrencyInput"
 import { Header } from "../../../components/header";
-import { ButtonPrimary, ButtonSecondary } from "../../../components/button";
+import { Button } from "../../../components/button";
 
 export function CriarCobranca() {
   return (
@@ -38,7 +38,7 @@ export function CriarCobranca() {
               </label>
             </div>
             <div className="buttons">
-            <ButtonSecondary>Cancelar</ButtonSecondary> <ButtonPrimary id="btn-margin">Criar cobrança</ButtonPrimary>
+            <Button name='secondary'>Cancelar</Button > <Button name='primary' id="btn-margin">Criar cobrança</Button>
             </div>
           </form>
         </div>

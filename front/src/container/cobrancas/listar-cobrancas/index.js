@@ -14,7 +14,7 @@ export function ListarCobranca() {
             <div className="conteudo">
                 <Header className="header-branco"></Header>
                 <form className="busca-listar-cobranca">
-                    <input type="text" placeholder="Procurar por Nome, E-mail ou CPF" required/>
+                    <input className="input-busca" type="text" placeholder="Procurar por Nome, E-mail ou CPF" required/>
                     <button className="botao-listar-cobranca">
                         <img src={search} alt="lupa" />
                         Buscar

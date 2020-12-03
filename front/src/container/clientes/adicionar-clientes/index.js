@@ -2,7 +2,7 @@ import "./style.css";
 import React from "react";
 import pic from "../../../assets/pic.svg";
 import { BarraLateral } from "../../../components/barra lateral";
-import { ButtonPrimary, ButtonSecondary} from "../../../components/button";
+import { Button } from "../../../components/button";
 import { Header } from "../../../components/header";
 
 export function AdicionarCliente() {
@@ -32,7 +32,7 @@ export function AdicionarCliente() {
               </label>
             </div>
             <div className="buttons-clientes">
-              <ButtonSecondary id="espaco" type="button">Cancelar</ButtonSecondary> <ButtonPrimary>Adicionar Cliente</ButtonPrimary>
+              <Button name='secondary' id="espaco" type="button">Cancelar</Button> <Button name="primary">Adicionar Cliente</Button>
             </div>
           </form>
         </div>

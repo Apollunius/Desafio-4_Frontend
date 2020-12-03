@@ -1,8 +1,9 @@
 .formulario {
-  margin: 0em 6.5em 0em 6.5em;
-  padding: 3em 20em;
-  background-color: white;
-  border-radius: 1em;
+    margin: 0em 6.5em 0em 6.5em;
+    padding: 3em 10em;
+    background-color: white;
+    border-radius: 1em;
+	max-width: 71em;
 }
 .input-cobranca,
 .select-cobranca,
@@ -52,10 +53,6 @@ label {
 li img {
   margin-right: 2em;
   align-self: center;
-}
-li {
-  list-style: none;
-  margin: 1.5em 0;
 }
 ul {
   margin-top: 3em;

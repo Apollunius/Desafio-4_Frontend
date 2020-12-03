@@ -3,9 +3,10 @@
   align-items: center;
   justify-content: flex-end;
   margin: 4em;
+  /* max-width: 10em; */
 }
 .botao-listar-cobranca {
-  height: 2.95em;
+  height: 2.9em;
   border-radius: 8px;
   border: none;
   background-color: #374952;
@@ -16,6 +17,7 @@
   align-items: center;
   min-width: 9em;
   margin-right: 1em;
+  margin-left: -1em;
 }
 thead {
   background-color: #9dbbc3;
@@ -64,3 +66,10 @@ th:last-child {
   letter-spacing: 0.25px;
   text-decoration: none;
 }
+.input-busca{
+	padding: 0.75em 1.25em;
+	border-radius: 8px;
+	border: 1px solid #374952;
+	max-width: 56.25em;
+	min-width: 25em;
+  }

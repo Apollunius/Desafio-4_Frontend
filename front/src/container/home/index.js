@@ -5,22 +5,14 @@ import vector from "../../assets/Vector.svg";
 import money from "../../assets/money.svg";
 import users from "../../assets/users.svg";
 import { BarraLateral } from "../../components/barra lateral";
+import { Header } from "../../components/header";
 
 export function Home() {
     return (
         <div className="main">
             <BarraLateral></BarraLateral>
             <div className="conteudo">
-                <div className="header-home">
-                    <div className="saldo">
-                        <div>
-                            <img src={vector} className="cifrao" />
-                            <span>Saldo em conta</span>
-                        </div>
-                        <span className="saldo-em-conta">R$ 0,00</span>
-                    </div>
-                    <img className="perfil" src={pic} alt="foto do perfil de usuário" />
-                </div>
+			<Header className="header-branco"></Header>
                 <div className="cards">
                     <div className="card-cliente">
                         <div className="header-clientes">

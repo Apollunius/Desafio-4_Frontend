@@ -1,11 +1,9 @@
-.busca-listar-cobranca {
+/* .busca-listar-cobranca {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin: 4em 4em 1em 4em;
-}
-.botao-listar-cobranca {
-  margin-top: 0.5em;
+} */
+/* .botao-listar-cobranca {
   height: 2.95em;
   border-radius: 8px;
   border: none;
@@ -17,7 +15,7 @@
   align-items: center;
   min-width: 9em;
   margin-right: 1em;
-}
+} */
 .tabela-listar-cliente thead {
   background-color: #9dbbc3;
   color: white;

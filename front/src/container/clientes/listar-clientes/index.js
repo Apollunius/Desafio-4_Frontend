@@ -7,7 +7,7 @@ import email from "../../../assets/email.svg";
 import tel from "../../../assets/tel.svg";
 import edit from "../../../assets/edit.svg";
 import { BarraLateral } from "../../../components/barra lateral";
-import { ButtonSecondary } from "../../../components/button";
+import { Button } from "../../../components/button";
 import { Header } from "../../../components/header";
 
 export function ListarClientes() {
@@ -17,9 +17,9 @@ export function ListarClientes() {
             <div className="conteudo">
                 <Header className="header-branco"></Header>
                 <div className="pesquisa-e-adicionar">
-                    <ButtonSecondary>Adicionar cliente</ButtonSecondary>
+                    <Button name="secondary"> Adicionar cliente</Button>
                     <form className="busca-listar-cobranca">
-                        <input className="input-procurar" type="text" placeholder="Procurar por Nome, E-mail ou CPF" required/>
+                        <input className="input-busca" type="text" placeholder="Procurar por Nome, E-mail ou CPF" required/>
                         <button className="botao-listar-cobranca">
                             <img src={search} alt="lupa" />
                             Buscar
