@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
+import { tokenctx, useStores } from "../../context";
 
 import vector from "../../assets/Vector.svg";
 import pic from "../../assets/pic.svg";
@@ -8,6 +9,7 @@ import logout from "../../assets/log-out.svg";
 
 export function Header(props) {
   const [click, setClick] = useState(true);
+  const { token, setToken } = useStores();
 
   return (
     <div className={props.className}>
@@ -16,9 +18,7 @@ export function Header(props) {
       ) : (
         <div className="saldo">
           <div>
-            <Link to="/">
-              <img src={vector} className="cifrao" />
-            </Link>
+            <img src={vector} className="cifrao" />
             <span>Saldo em conta</span>
           </div>
           <span className="saldo-em-conta">R$ 0,00</span>
@@ -35,8 +35,7 @@ export function Header(props) {
           <Link to="/login">
             <div className="logout">
               <img src={logout} />
-              <button type="reset">Deslogar</button>
-              {/* onClick={() => setToken(null)} className="btnLogin" */}
+              <button onClick={() => setToken(null)}>Deslogar</button>
             </div>
           </Link>
         ) : undefined}
