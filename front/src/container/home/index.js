@@ -1,13 +1,32 @@
 import "./style.css";
 import React from "react";
-import pic from "../../assets/pic.svg";
-import vector from "../../assets/Vector.svg";
 import money from "../../assets/money.svg";
 import users from "../../assets/users.svg";
-import { BarraLateral } from "../../components/barra lateral";
 import { Header } from "../../components/header";
+import { useStores } from "../../context";
 
 export function Home() {
+
+    const [dadosRelatorio, setDadosRelatorio] = React.useState("")
+    const { token } = useStores();
+
+    React.useEffect(() => {
+        fetch(`http://localhost:8081/relatorios`, {
+                method: 'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: token && `Bearer ${token}`,
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+                setDadosRelatorio(data.dados.relatorio);
+            })
+            .catch(err => {
+                console.error(err);
+            })
+      }, [])
+      console.log(dadosRelatorio)
     return (
         <div className="conteudo">
 			<Header className="header-branco"></Header>
@@ -22,13 +41,13 @@ export function Home() {
                                 <span>
                                     Em dia
                                 </span>
-                                <span className="valor-em-dia-card"> 0 </span>
+                                <span className="valor-em-dia-card"> {dadosRelatorio.qtdClientesAdimplentes} </span>
                             </div>
                             <div className="inadimplentes-card">
                                 <span>
                                     Inadimplentes
                                 </span>
-                                <span className="valor-inadimplentes-card"> 0 </span>
+                                <span className="valor-inadimplentes-card"> {dadosRelatorio.qtdClientesInadimplentes} </span>
                             </div>
                         </div>
                     </div>
@@ -42,19 +61,19 @@ export function Home() {
                                 <span>
                                     Previstas
                                 </span>
-                                <span className="valor-previstas-card"> 0 </span>
+                                <span className="valor-previstas-card"> {dadosRelatorio.qtdCobrancasPrevistas} </span>
                             </div>
                             <div className="vencidas-card">
                                 <span>
                                     Vencidas
                                 </span>
-                                <span className="valor-vencidas-card"> 0 </span>
+                                <span className="valor-vencidas-card"> {dadosRelatorio.qtdCobrancasVencidas} </span>
                             </div>
                             <div className="pagas-card">
                                 <span>
                                     Pagas
                                 </span>
-                                <span className="valor-pagas-card"> 0 </span>
+                                <span className="valor-pagas-card"> {dadosRelatorio.qtdCobrancasPagas} </span>
                             </div>
                         </div>
                     </div>

@@ -15,7 +15,11 @@ export function ListarClientes() {
 const [offset, setOffset] = React.useState(0)
 const [busca, setBusca] = React.useState("");
 const [dadosClientes, setDadosClientes] = React.useState("")
+const [paginas, setPaginas] = React.useState(1)
+const [paginaAtual, setPaginaAtual] = React.useState(1)
 const { token } = useStores();
+
+const qtdDePaginas = [];
 
 
 React.useEffect(()=>{
@@ -31,6 +35,8 @@ React.useEffect(()=>{
         .then(data => {
             console.log(data.dados.clientes)
             setDadosClientes(data.dados.clientes);
+            setPaginas(data.dados.totalDePaginas);
+            setPaginaAtual(data.dados.paginaAtual);
         })
         .catch(err => {
             console.error(err);
@@ -41,6 +47,8 @@ React.useEffect(()=>{
         .then(data => {
             console.log(data.dados.clientes)
             setDadosClientes(data.dados.clientes);
+            setPaginas(data.dados.totalDePaginas);
+            setPaginaAtual(data.dados.paginaAtual);
         })
         .catch(err => {
             console.error(err);
@@ -48,6 +56,11 @@ React.useEffect(()=>{
     }
 }, [offset])
 
+for(let i=0; i<paginas; i++) {
+    teste.push(i+1)
+    console.log('i=', i)
+}
+console.log(teste);
   return (
     <div className="conteudo">
       <Header className="header-branco"></Header>
@@ -118,12 +131,20 @@ React.useEffect(()=>{
         <a href="#" className="pagina voltar">
           &#60;
         </a>
-        <a href="#" className="pagina">
-          1
-        </a>
-        <a href="#" className="pagina">
-          2
-        </a>
+        {   
+            paginas!=1?
+            qtdDePaginas.forEach(item => {
+                return (
+                <a href="#" className="pagina">
+                    {console.log(`olá ${item}`)}
+                    {item}
+                </a>
+            )}        
+            ):
+            <a href="#" className="pagina">
+                1
+            </a>
+        }
         <a href="#" className="pagina avancar">
           &#62;
         </a>
