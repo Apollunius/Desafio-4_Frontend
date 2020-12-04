@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
-import { tokenctx, useStores } from "../../context";
+import { useStores } from "../../context";
 
 import vector from "../../assets/Vector.svg";
 import pic from "../../assets/pic.svg";
@@ -34,7 +34,7 @@ export function Header(props) {
         {!click ? (
           <Link to="/login">
             <div className="logout">
-              <img src={logout} />
+              <img src={logout} alt="Deslogar"/>
               <button onClick={() => setToken(null)}>Deslogar</button>
             </div>
           </Link>

@@ -1,28 +1,19 @@
 import "./style.css";
 import React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "../../components/button";
+import { useStores } from "../../context";
+import {fazerRequisicaoComBody} from '../../helpers/fetch'
 import logo from "../../assets/logo.svg";
 import hide from "../../assets/hide.svg";
 import Input from "../../components/input";
-import { Link } from "react-router-dom";
-import { Button } from "../../components/button";
-import { useContext } from "react";
-import { tokenctx, useStores } from "../../context";
 
-function fazerRequisicaoComBody(url, metodo, conteudo, token) {
-  return fetch(url, {
-    method: metodo,
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: token && `Bearer ${token}`,
-    },
-    body: JSON.stringify(conteudo),
-  });
-}
+
 
 export function Login(props) {
   const [email, setEmail] = React.useState("");
   const [senha, setSenha] = React.useState("");
-  const {token, setToken} = useStores();
+  const { setToken } = useStores();
 
   return (
     <div className="center">
@@ -116,10 +107,9 @@ export function Cadastro() {
         </div>
       </div>
       <div className="join">
-        {" "}
         Já possui uma conta? 
         <Link to="/login">
-          <span href="#">Acesse agora!</span>
+          <span>Acesse agora!</span>
         </Link>
       </div>
     </div>
