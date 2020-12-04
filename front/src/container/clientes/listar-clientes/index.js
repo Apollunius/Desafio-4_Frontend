@@ -57,15 +57,13 @@ React.useEffect(()=>{
 }, [offset])
 
 for(let i=0; i<paginas; i++) {
-    teste.push(i+1)
-    console.log('i=', i)
+  qtdDePaginas.push(i+1)
 }
-console.log(teste);
   return (
     <div className="conteudo">
       <Header className="header-branco"></Header>
       <div className="pesquisa-e-adicionar">
-        <Link to="/cobrancas/criar">
+        <Link to="/clientes/adicionar">
           <Button name="secondary" type="submit">
             Adicionar cliente
           </Button>
