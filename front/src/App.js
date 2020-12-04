@@ -19,6 +19,9 @@ function App() {
           {token && <BarraLateral></BarraLateral>}
           <Switch>
             {!token && <Route exact path="/login" component={Login} />}
+			{!token && (
+              <Route exact path="/cadastro" component={Cadastro} />
+            )}
             {token && <Route exact path="/home" component={Home} />}
             {token && (
               <Route exact path="/cobrancas" component={ListarCobranca} />

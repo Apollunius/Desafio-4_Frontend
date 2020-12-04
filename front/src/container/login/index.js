@@ -3,6 +3,7 @@ import React from "react";
 import logo from "../../assets/logo.svg";
 import hide from "../../assets/hide.svg";
 import Input from "../../components/input";
+import { Link } from "react-router-dom";
 import { Button } from "../../components/button";
 import { useContext } from "react";
 import { tokenctx, useStores } from "../../context";
@@ -77,7 +78,10 @@ export function Login(props) {
       </div>
       <div className="join">
         {" "}
-        Não tem uma conta? <a href="#">Cadastre-se!</a>
+        Não tem uma conta?  
+        <Link to="/cadastro">
+          <span href="#">Cadastre-se!</span>
+        </Link>
       </div>
     </div>
   );
@@ -113,7 +117,10 @@ export function Cadastro() {
       </div>
       <div className="join">
         {" "}
-        Já possui uma conta? <span href="#">Acesse agora!</span>
+        Já possui uma conta? 
+        <Link to="/login">
+          <span href="#">Acesse agora!</span>
+        </Link>
       </div>
     </div>
   );
