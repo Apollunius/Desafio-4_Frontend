@@ -7,9 +7,7 @@ import { Header } from "../../../components/header";
 
 export function EditarCliente() {
   return (
-    <div className="main">
-      <BarraLateral></BarraLateral>
-      <div className="conteudo">
+    <div className="conteudo">
       <Header name="// EDITAR CLIENTE" className="header"></Header>
         <div className="formulario-clientes">
           <form className="form-clientes">
@@ -37,6 +35,5 @@ export function EditarCliente() {
           </form>
         </div>
       </div>
-    </div>
   );
 }

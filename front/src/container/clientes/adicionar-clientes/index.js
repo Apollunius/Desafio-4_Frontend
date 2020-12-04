@@ -7,9 +7,7 @@ import { Header } from "../../../components/header";
 
 export function AdicionarCliente() {
   return (
-    <div className="main">
-      <BarraLateral></BarraLateral>
-      <div className="conteudo">
+    <div className="conteudo">
         <Header name="// ADICIONAR CLIENTE" className="header"></Header>
         <div className="formulario-clientes">
           <form className="form-clientes">
@@ -37,6 +35,5 @@ export function AdicionarCliente() {
           </form>
         </div>
       </div>
-    </div>
   );
 }

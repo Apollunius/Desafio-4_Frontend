@@ -9,9 +9,7 @@ import { Header } from "../../components/header";
 
 export function Home() {
     return (
-        <div className="main">
-            <BarraLateral></BarraLateral>
-            <div className="conteudo">
+        <div className="conteudo">
 			<Header className="header-branco"></Header>
                 <div className="cards">
                     <div className="card-cliente">
@@ -62,6 +60,5 @@ export function Home() {
                     </div>
                 </div>
              </div>
-        </div>
     );
 }
