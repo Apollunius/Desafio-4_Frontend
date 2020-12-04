@@ -82,9 +82,9 @@ React.useEffect(()=>{
           </tr>
         </thead>
         <tbody className="computar-tabela-cliente">
-        {console.log(dadosClientes)}
-        { dadosClientes.map((element) => {
-            return (                                
+        {console.log(dadosClientes, '-', [...dadosClientes])}
+        { [...dadosClientes].map((element) => {
+            return (                          
                 <tr className="tabela-body">
                     <td>
                         <tr className="tabela-cliente-itens">
@@ -101,17 +101,17 @@ React.useEffect(()=>{
                             </td>
                         </tr>
                     </td>
-                    <td>R$1000,00</td>
-                    <td>R$1000,00</td>
-                    <td>EM DIA</td>
+                    <td>R${element.cobrancasFeitas}</td>
+                    <td>R${element.cobrancasRecebidas}</td>
+                    <td>{element.estaInadimplente? 'INADIMPLENTE':'EM DIA'}</td>
                     <td>
                     <Link to="/clientes/editar">
                         <img src={edit} />
                     </Link>
                     </td>
-                </tr>)
-            })
-        }
+                </tr>
+            )}
+        )}
         </tbody>
       </table>
       <div className="mudar-pagina">
