@@ -11,14 +11,15 @@ import logo from "../../assets/logo2.svg";
 export function BarraLateral() {
   return (
     <div className="menuLateral">
-      <div className="logo">
+      <Link to='/home'><div className="logo">
         <img src={logo} />
       </div>
+	  </Link>
       <div>
         <nav>
           <ul>
             <li>
-            <Link to="/">
+            <Link to="/home">
                 <img src={home} alt="Início" />
                 <span>HOME</span>
               </Link>
