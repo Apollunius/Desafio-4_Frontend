@@ -27,14 +27,6 @@ body {
   margin-bottom: 1em;
   font-size: 0.9rem;
 }
-.login button {
-  color: #ffffff;
-  background-color: rgba(218, 1, 117, 0.35);
-  border: none;
-  padding: 0.7em 4em;
-  border-radius: 20px;
-  margin-top: 2em;
-}
 .title {
   color: #374952;
   font-size: 1.2rem;
@@ -92,7 +84,7 @@ body {
 .join > a {
   color: #f186d1;
 }
-.send-login {
+.btn-login-cadastro {
   display: flex;
   justify-content: center;
 }
