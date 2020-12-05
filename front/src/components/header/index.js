@@ -37,7 +37,7 @@ export function Header(props) {
             <img src={vector} className="cifrao" />
             <span>Saldo em conta</span>
           </div>
-      <span className="saldo-em-conta">R$ {dadosRelatorio.saldoEmConta/100}</span>
+      <span className="saldo-em-conta"> {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(dadosRelatorio.saldoEmConta/100)}</span>
         </div>
       )}
       <div className="perfil">

@@ -66,10 +66,17 @@ th:last-child {
   letter-spacing: 0.25px;
   text-decoration: none;
 }
-.input-busca{
-	padding: 0.75em 1.25em;
-	border-radius: 8px;
-	border: 1px solid #374952;
-	max-width: 56.25em;
-	min-width: 25em;
-  }
+.input-busca {
+  padding: 0.75em 1.25em;
+  border-radius: 8px;
+  border: 1px solid #374952;
+  max-width: 56.25em;
+  min-width: 25em;
+}
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 1em;
+}

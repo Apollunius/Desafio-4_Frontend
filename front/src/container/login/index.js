@@ -13,7 +13,7 @@ export function Login(props) {
   const [email, setEmail] = React.useState("");
   const [senha, setSenha] = React.useState("");
   const { setToken } = useStores();
-
+  const [clicado, setClicado] = React.useState(false)
 
   return (
     <div className="center">
@@ -58,11 +58,11 @@ export function Login(props) {
               <div className="title">Senha</div>
               <div className="password">
                 <input
-                  type="password"
+                  type={!clicado ? "password" : "text"}
                   onInput={(event) => setSenha(event.target.value)}
                 />
                 <a className="hide">
-                  <img src={hide} alt="esconder" />
+                  <img onClick={() => setClicado(!clicado)} src={clicado ? show : hide} alt={clicado ? "mostrar" : "esconder"}/>
                 </a>
               </div>
             </label>
@@ -121,12 +121,12 @@ export function Cadastro() {
               <div className="title">Senha</div>
               <div className="password">
                 <input
-				  type="password"
+				  type={!clicado ? "password" : "text"}
 				  value={senha}
                   onInput={(event) => setSenha(event.target.value)}
                 />
                 <a className="hide">
-				   <img onClick={() => setClicado(true)} src={clicado ? show : hide} alt={clicado ? "mostrar" : "esconder"} />
+				   <img onClick={() => setClicado(!clicado)} src={clicado ? show : hide} alt={clicado ? "mostrar" : "esconder"} />
                 </a>
               </div>
             </label>

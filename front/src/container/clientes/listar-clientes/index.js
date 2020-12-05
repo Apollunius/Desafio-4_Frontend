@@ -8,6 +8,9 @@ import email from "../../../assets/email.svg";
 import tel from "../../../assets/tel.svg";
 import edit from "../../../assets/edit.svg";
 import { useStores } from "../../../context";
+import { Pagination } from "antd";
+import "antd/dist/antd.css";
+import { fazerRequisicaoComBody } from "../../../helpers/fetch"
 
 
 export function ListarClientes() {
@@ -19,44 +22,63 @@ const [paginasCliente, setPaginasCliente] = React.useState(1)
 const [paginaClienteAtual, setPaginaClienteAtual] = React.useState(1)
 const { token, setIdDoCliente, idDoCliente } = useStores();
 
-const qtdDePaginas = [];
+async function onChange(page) {
+  const pagina = page - 1;
 
-
-React.useEffect(()=>{
-    if(!busca) {
-        fetch(`http://localhost:8081/clientes?clientesPorPagina=10&offset=${offset}`, {
-            method: 'GET',
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: token && `Bearer ${token}`,
-            }
-        })
-        .then(res => res.json())
-        .then(data => {
-            setDadosClientes(data.dados.clientes);
-            setPaginasCliente(data.dados.totalDePaginas);
-            setPaginaClienteAtual(data.dados.paginaAtual);
-        })
-        .catch(err => {
-            console.error(err);
-        })
-    } else {
-        fetch(`http://localhost:8081/clientes?busca=${busca}&clientesPorPagina=10&offset=${offset}`)
-        .then(res => res.json())
-        .then(data => {
-            setDadosClientes(data.dados.clientes);
-            setPaginasCliente(data.dados.totalDePaginas);
-            setPaginaClienteAtual(data.dados.paginaAtual);
-        })
-        .catch(err => {
-            console.error(err);
-        })
-    }
-}, [offset])
-
-for(let i=0; i<paginasCliente; i++) {
-  qtdDePaginas.push(i+1)
+  await fazerRequisicaoComBody(
+    `https://cubos-desafio-4.herokuapp.com/clientes?clientesPorPagina=10&offset=${
+      pagina * 10
+    }`,
+    "GET",
+    undefined,
+    token
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      setDadosClientes(data.dados.clientes);
+      setPaginasCliente(data.dados.totalDePaginas);
+      setPaginaClienteAtual(data.dados.paginaAtual);
+    });
 }
+React.useEffect(()=>{
+  if(busca) {
+    fetch(`http://localhost:8081/clientes?busca=${busca}&clientesPorPagina=10&offset=${offset}`, {
+      method: 'GET',
+      headers: {
+          "Content-Type": "application/json",
+          Authorization: token && `Bearer ${token}`,
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+        setDadosClientes(data.dados.clientes);
+        setPaginasCliente(data.dados.totalDePaginas);
+        setPaginaClienteAtual(data.dados.paginaAtual);
+    })
+    .catch(err => {
+        console.error(err);
+    
+    })
+ } else {
+      fetch(`http://localhost:8081/clientes?clientesPorPagina=10&offset=${offset}`, {
+          method: 'GET',
+          headers: {
+              "Content-Type": "application/json",
+              Authorization: token && `Bearer ${token}`,
+          }
+      })
+      .then(res => res.json())
+      .then(data => {
+          setDadosClientes(data.dados.clientes);
+          setPaginasCliente(data.dados.totalDePaginas);
+          setPaginaClienteAtual(data.dados.paginaAtual);
+      })
+      .catch(err => {
+          console.error(err);
+    })
+  }
+}, [])
+
   return (
     <div className="conteudo">
       <Header className="header-branco"></Header>
@@ -71,9 +93,13 @@ for(let i=0; i<paginasCliente; i++) {
             className="input-busca"
             type="text"
             placeholder="Procurar por Nome, E-mail ou CPF"
+            value={busca}
+            onChange={event => setBusca(event.target.value)}
             required
           />
-          <button className="botao-listar-cobranca">
+          <button className="botao-listar-cobranca" type="button" onClick={()=> {
+            console.log(busca)
+          }}>
             <img src={search} alt="lupa" />
             Buscar
           </button>
@@ -109,8 +135,8 @@ for(let i=0; i<paginasCliente; i++) {
                             </td>
                         </tr>
                     </td>
-                    <td>R${element.cobrancasFeitas}</td>
-                    <td>R${element.cobrancasRecebidas}</td>
+                    <td>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(element.cobrancasFeitas/100)}</td>
+                    <td>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(element.cobrancasRecebidas/100)}</td>
                     <td>{element.estaInadimplente? 'INADIMPLENTE':'EM DIA'}</td>
                     <td>
                     <Link to="/clientes/editar">
@@ -125,25 +151,14 @@ for(let i=0; i<paginasCliente; i++) {
         </tbody>
       </table>
       <div className="mudar-pagina">
-        <a href="#" className="pagina voltar">
-          &#60;
-        </a>
-        {   
-            paginasCliente != 1?
-            qtdDePaginas.forEach(item => {
-                return (
-                <a href="#" className="pagina">
-                    {item}
-                </a>
-            )}        
-            ):
-            <a href="#" className="pagina">
-                1
-            </a>
-        }
-        <a href="#" className="pagina avancar">
-          &#62;
-        </a>
+        <div className="pagination">
+              <Pagination
+                size="small"
+                total={paginasCliente * 10}
+                pageSize={10}
+                onChange={onChange}
+              />
+            </div>
       </div>
     </div>
   );

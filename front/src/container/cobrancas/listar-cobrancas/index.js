@@ -67,13 +67,16 @@ export function ListarCobranca() {
         </thead>
         <tbody>
         { [...dadosCobranca].map((element) => {
+          const parteDoVencimento = element.vencimento.substring(0, 10);
+          const vencimentoInvertido = parteDoVencimento.replace(/[^\d]/g, '');
+          const vencimentoReal = vencimentoInvertido.replace(/(\d{4})(\d{2})(\d{2})/, '$3/$2/$1')
           return (                          
             <tr className="tabela-body">
               <td>{element.iddocliente}</td>
               <td>{element.descricao.length>10? element.descricao.slice(0, 9) + "...": element.descricao}</td>
-              <td>R${element.valor}</td>
-              <td>{element.status=='PAGO'? <img src={toggleOn} />: element.status=='PENDENTE'? <img src={toggleOff}/>: ''}{element.status}</td>
-              <td>{element.vencimento}</td>
+              <td>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(element.valor/100)}</td>
+              <td className="status">{element.status=='PAGO'? <img src={toggleOn} />: element.status=='AGUARDANDO'? <img src={toggleOff}/>: ''}{element.status}</td>
+              <td>{vencimentoReal}</td>
               <td>
                 <img src={printer} />
               </td>

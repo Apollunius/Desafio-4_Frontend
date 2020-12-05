@@ -22,8 +22,9 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0em 4em 1em 1em;
-  margin: 4em;
+  padding: 1em 4em 1em 1em;
+  min-height: 6.5em;
+  margin: 2em 4em;
   background-color: #374952;
   color: white;
   border-radius: 8px;
