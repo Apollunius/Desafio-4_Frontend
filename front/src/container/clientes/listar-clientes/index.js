@@ -15,9 +15,9 @@ export function ListarClientes() {
 const [offset, setOffset] = React.useState(0)
 const [busca, setBusca] = React.useState("");
 const [dadosClientes, setDadosClientes] = React.useState("")
-const [paginas, setPaginas] = React.useState(1)
-const [paginaAtual, setPaginaAtual] = React.useState(1)
-const { token } = useStores();
+const [paginasCliente, setPaginasCliente] = React.useState(1)
+const [paginaClienteAtual, setPaginaClienteAtual] = React.useState(1)
+const { token, setIdDoCliente, idDoCliente } = useStores();
 
 const qtdDePaginas = [];
 
@@ -33,12 +33,18 @@ React.useEffect(()=>{
         })
         .then(res => res.json())
         .then(data => {
+<<<<<<< HEAD
 			console.log(offset)
             // console.log(data.dados.clientes)
             setDadosClientes(data.dados.clientes);
             setPaginas(data.dados.totalDePaginas);
 			setPaginaAtual(data.dados.paginaAtual);
 			console.log(data.dados)
+=======
+            setDadosClientes(data.dados.clientes);
+            setPaginasCliente(data.dados.totalDePaginas);
+            setPaginaClienteAtual(data.dados.paginaAtual);
+>>>>>>> e85853bd4382713158d1426414122e266c1de086
         })
         .catch(err => {
             console.error(err);
@@ -47,10 +53,9 @@ React.useEffect(()=>{
         fetch(`http://localhost:8081/clientes?busca=${busca}&clientesPorPagina=10&offset=${offset}`)
         .then(res => res.json())
         .then(data => {
-            console.log(data.dados.clientes)
             setDadosClientes(data.dados.clientes);
-            setPaginas(data.dados.totalDePaginas);
-            setPaginaAtual(data.dados.paginaAtual);
+            setPaginasCliente(data.dados.totalDePaginas);
+            setPaginaClienteAtual(data.dados.paginaAtual);
         })
         .catch(err => {
             console.error(err);
@@ -58,7 +63,7 @@ React.useEffect(()=>{
     }
 }, [offset])
 
-for(let i=0; i<paginas; i++) {
+for(let i=0; i<paginasCliente; i++) {
   qtdDePaginas.push(i+1)
 }
   return (
@@ -95,7 +100,6 @@ for(let i=0; i<paginas; i++) {
           </tr>
         </thead>
         <tbody className="computar-tabela-cliente">
-        {console.log(dadosClientes, '-', [...dadosClientes])}
         { [...dadosClientes].map((element) => {
             return (                          
                 <tr className="tabela-body">
@@ -119,7 +123,9 @@ for(let i=0; i<paginas; i++) {
                     <td>{element.estaInadimplente? 'INADIMPLENTE':'EM DIA'}</td>
                     <td>
                     <Link to="/clientes/editar">
-                        <img src={edit} />
+                        <img src={edit} id={element.id} onClick={() => {
+                          setIdDoCliente(element.id)
+                        }}/>
                     </Link>
                     </td>
                 </tr>
@@ -132,11 +138,15 @@ for(let i=0; i<paginas; i++) {
           &#60;
         </a>
         {   
-            paginas!=1?
+            paginasCliente != 1?
             qtdDePaginas.forEach(item => {
                 return (
                 <a href="#" className="pagina">
+<<<<<<< HEAD
                    {item}
+=======
+                    {item}
+>>>>>>> e85853bd4382713158d1426414122e266c1de086
                 </a>
             )}        
             ):

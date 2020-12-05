@@ -11,6 +11,7 @@ export function ListarCobranca() {
   const [offset, setOffset] = React.useState(0);
   const [dadosCobranca, setDadosCobranca] = React.useState("");
   const { token } = useStores();
+<<<<<<< HEAD
   const [paginas, setPaginas] = React.useState(0);
   const [paginaAtual, setPaginaAtual] = React.useState(1);
   const qtdDePaginas = [];
@@ -40,6 +41,35 @@ export function ListarCobranca() {
     qtdDePaginas.push(i + 1);
   }
 
+=======
+  const [paginasCobranca, setPaginasCobranca] = React.useState(1)
+  const [paginaCobrancaAtual, setPaginaCobrancaAtual] = React.useState(1)
+  const qtdDePaginasCobranca = []
+
+
+  React.useEffect(() => {
+    fetch(`http://localhost:8081/cobrancas?cobrancasPorPagina=10&offset=${offset}`, {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: token && `Bearer ${token}`,
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            setDadosCobranca(data.dados.cobrancas);
+            setPaginasCobranca(data.dados.totalDePaginas);
+            setPaginaCobrancaAtual(data.dados.paginaAtual);
+        })
+        .catch(err => {
+            console.error(err);
+        })
+  }, [offset])
+  for(let i=0; i<paginasCobranca; i++) {
+    qtdDePaginasCobranca.push(i+1)
+  }
+  console.log(dadosCobranca)
+>>>>>>> e85853bd4382713158d1426414122e266c1de086
   return (
     <div className="conteudo">
       <Header className="header-branco"></Header>
@@ -67,6 +97,7 @@ export function ListarCobranca() {
           </tr>
         </thead>
         <tbody>
+<<<<<<< HEAD
           {[...dadosCobranca].map((element) => {
             return (
               <tr className="tabela-body">
@@ -100,12 +131,29 @@ export function ListarCobranca() {
               </tr>
             );
           })}
+=======
+        { [...dadosCobranca].map((element) => {
+          return (                          
+            <tr className="tabela-body">
+              <td>{element.iddocliente}</td>
+              <td>{element.descricao.length>10? element.descricao.slice(0, 9) + "...": element.descricao}</td>
+              <td>R${element.valor}</td>
+              <td>{element.status=='PAGO'? <img src={toggleOn} />: element.status=='PENDENTE'? <img src={toggleOff}/>: ''}{element.status}</td>
+              <td>{element.vencimento}</td>
+              <td>
+                <img src={printer} />
+              </td>
+            </tr>
+          )}
+        )}
+>>>>>>> e85853bd4382713158d1426414122e266c1de086
         </tbody>
       </table>
       <div className="mudar-pagina">
         <a href="#" className="pagina voltar">
           &#60;
         </a>
+<<<<<<< HEAD
         <a href="#" className="pagina">
          
           {paginas !== 1
@@ -114,6 +162,21 @@ export function ListarCobranca() {
               })
             : 1}
         </a>
+=======
+        {   
+            paginasCobranca!=1?
+            qtdDePaginasCobranca.forEach(item => {
+                return (
+                <a href="#" className="pagina">
+                    {item}
+                </a>
+            )}        
+            ):
+            <a href="#" className="pagina">
+                1
+            </a>
+        }
+>>>>>>> e85853bd4382713158d1426414122e266c1de086
         <a href="#" className="pagina avancar">
           &#62;
         </a>

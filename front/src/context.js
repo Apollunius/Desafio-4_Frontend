@@ -8,9 +8,11 @@ export function useStores() {
 
 export function StoreProvider(props) {
   const [token, setToken] = useState();
+  const [idDoCliente, setIdDoCliente] = useState();
   return (
-    <tokenctx.Provider value={{ token, setToken }}>
+    <tokenctx.Provider value={{ token, setToken, idDoCliente, setIdDoCliente }}>
       {props.children}
     </tokenctx.Provider>
+    
   );
 }
