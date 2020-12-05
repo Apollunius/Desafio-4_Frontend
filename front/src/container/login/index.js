@@ -1,6 +1,6 @@
 import "./style.css";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Button } from "../../components/button";
 import { useStores } from "../../context";
 import { fazerRequisicaoComBody } from "../../helpers/fetch";
@@ -13,6 +13,7 @@ export function Login(props) {
   const [email, setEmail] = React.useState("");
   const [senha, setSenha] = React.useState("");
   const { setToken } = useStores();
+
 
   return (
     <div className="center">
@@ -30,12 +31,20 @@ export function Login(props) {
               })
                 .then((res) => res.json())
                 .then((respostaJson) => {
+                  
                   const novoToken = respostaJson.dados.token;
+                  if(novoToken == undefined) {
+                    return alert("Usuario inexistente, favor realizar cadastro!")
+                  }
                   console.log(novoToken);
                   setToken(novoToken);
                   setEmail("");
                   setSenha("");
-                });
+                })
+                .catch(err => {
+                  console.error(err);
+                })
+              ;
             }}
           >
             <Input
@@ -81,6 +90,13 @@ export function Cadastro() {
   const [senha, setSenha] = React.useState("");
   const [nome, setNome] = React.useState("");
   const [clicado, setClicado] = React.useState(false)
+
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push("/login");
+  }
+
   return (
     <div className="center">
       <div className="login">
@@ -88,27 +104,7 @@ export function Cadastro() {
           <img src={logo} alt="logo"></img>
         </div>
         <div>
-          <form
-            onSubmit={(event) => {
-              event.preventDefault();
-              fazerRequisicaoComBody("http://localhost:8081/usuarios", "POST", {
-                email,
-                senha,
-                nome,
-              })
-                .then((res) => res.json())
-                .then((respostaJson) => {
-				  const {id, mensagem} = respostaJson.dados;
-				  if(id){
-					  alert('CADASTRO REALIZADO COM SUCESSO! 🎉');
-				  }else if(mensagem === "Email já existente"){
-					alert("Email já existente");
-				  }else{
-					alert("Por gentileza, preencha todos os campos!");
-				  }
-                });
-            }}
-          >
+          <form>
             <Input
               title="Nome"
               type="text"
@@ -135,9 +131,32 @@ export function Cadastro() {
               </div>
             </label>
 			<div className="btn-login-cadastro">
-            <Button name='primary' disabled={!email && !senha}> Criar conta</Button>
-			</div>
-          </form>
+          <Button name='primary' disabled={!email && !senha} onClick={(event) => {
+              event.preventDefault();
+              fazerRequisicaoComBody("http://localhost:8081/usuarios", "POST", {
+                email,
+                senha,
+                nome,
+              })
+                .then((res) => res.json())
+                .then((respostaJson) => {
+				  const {id, mensagem} = respostaJson.dados;
+				  if(!id){
+					  if(mensagem === "Email já existente"){
+					    alert("Email já existente");
+				    } else {
+					  alert("Por gentileza, preencha todos os campos!");
+            }
+          } else {
+            alert('CADASTRO REALIZADO COM SUCESSO! 🎉');
+            handleClick();
+          }
+        });
+        
+        }}> Criar conta
+            </Button>
+      </div>
+        </form>
         </div>
       </div>
       <div className="join">
