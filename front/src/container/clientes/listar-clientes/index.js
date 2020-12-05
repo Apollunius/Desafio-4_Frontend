@@ -17,7 +17,7 @@ const [busca, setBusca] = React.useState("");
 const [dadosClientes, setDadosClientes] = React.useState("")
 const [paginasCliente, setPaginasCliente] = React.useState(1)
 const [paginaClienteAtual, setPaginaClienteAtual] = React.useState(1)
-const { token } = useStores();
+const { token, setIdDoCliente, idDoCliente } = useStores();
 
 const qtdDePaginas = [];
 
@@ -91,7 +91,6 @@ for(let i=0; i<paginasCliente; i++) {
           </tr>
         </thead>
         <tbody className="computar-tabela-cliente">
-        {console.log(dadosClientes, '-', [...dadosClientes])}
         { [...dadosClientes].map((element) => {
             return (                          
                 <tr className="tabela-body">
@@ -115,7 +114,9 @@ for(let i=0; i<paginasCliente; i++) {
                     <td>{element.estaInadimplente? 'INADIMPLENTE':'EM DIA'}</td>
                     <td>
                     <Link to="/clientes/editar">
-                        <img src={edit} />
+                        <img src={edit} id={element.id} onClick={() => {
+                          setIdDoCliente(element.id)
+                        }}/>
                     </Link>
                     </td>
                 </tr>
@@ -132,7 +133,6 @@ for(let i=0; i<paginasCliente; i++) {
             qtdDePaginas.forEach(item => {
                 return (
                 <a href="#" className="pagina">
-                    {console.log(`olá ${item}`)}
                     {item}
                 </a>
             )}        

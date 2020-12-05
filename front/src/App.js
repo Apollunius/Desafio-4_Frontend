@@ -11,7 +11,7 @@ import { useContext, useState } from "react";
 import { tokenctx, useStores } from "./context";
 
 function App() {
-  const { token } = useStores();
+  const { token, idDoCliente } = useStores();
   return (
     <div>
       <BrowserRouter>
