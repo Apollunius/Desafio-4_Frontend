@@ -1,0 +1,49 @@
+.formulario-clientes {
+  margin: 0em 6.5em 0em 6.5em;
+  padding: 3em 20em;
+  background-color: white;
+  border-radius: 1em;
+  width: 1420px;
+}
+.input-cliente-nome,
+.input-cliente-email {
+  padding: 0.75em 1.25em;
+  margin-top: 0.5em;
+  border-radius: 8px;
+  border: 1px solid #374952;
+  width: 780px;
+}
+.input-cliente-cpf, .input-cliente-telefone {
+  padding: 0.75em 1.25em;
+  margin-top: 0.5em;
+  border-radius: 8px;
+  border: 1px solid #374952;
+  max-width: 900px;
+  min-width: 400px;
+}
+.form-clientes {
+  width: 780px;
+}
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 2em;
+}
+.cpf-e-telefone {
+  display: flex;
+}
+.cpf-e-telefone .separador {
+  margin-left: 1em;
+}
+.cpf-e-telefone .separador input {
+  padding: 0.64em 1.25em;
+}
+.cpf-e-telefone input {
+  min-width: 380px;
+}
+.buttons-clientes {
+  display: flex;
+  justify-content: flex-end;
+}

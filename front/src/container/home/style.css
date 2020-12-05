@@ -1,0 +1,79 @@
+.cards {
+  display: flex;
+  flex-direction: row;
+}
+.header-clientes,
+.header-cobrancas {
+  background-color: #374952;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px 16px 0px 0px;
+  padding: 1em 4em;
+}
+.header-clientes img,
+.header-cobrancas img {
+  margin-right: 0.5em;
+}
+.card-cliente > div,
+.card-cobranca {
+  margin: 5em 0em 0em 3.5em;
+  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  font-weight: 600;
+}
+.card-conteudo {
+  background-color: white;
+  border-radius: 0px 0px 16px 16px;
+  padding: 2em 4em;
+}
+.card-cliente .card-conteudo {
+  margin-top: 0em;
+  border-radius: 0px 0px 16px 16px;
+}
+.card-cliente .header-clientes {
+  border-radius: 16px 16px 0px 0px ;
+}
+.em-dia-card,
+.pagas-card {
+  border: 2px solid #4ec06e;
+  color: #4ec06e;
+  padding: 1.5em 1em;
+  min-width: 266px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5em;
+  border-radius: 8px;
+}
+.inadimplentes-card,
+.vencidas-card {
+  border: 2px solid #ff4d4d;
+  color: #ff4d4d;
+  padding: 1.5em 1em;
+  min-width: 266px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5em;
+  border-radius: 8px;
+}
+.previstas-card {
+  border: 2px solid #5197b5;
+  color: #5197b5;
+  padding: 1.5em 1em;
+  min-width: 266px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5em;
+  border-radius: 8px;
+}
+.valor-em-dia-card,
+.valor-pagas-card,
+.valor-previstas-card,
+.valor-inadimplentes-card,
+.valor-vencidas-card {
+  font-size: 36px;
+}
