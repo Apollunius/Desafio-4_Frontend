@@ -36,7 +36,8 @@ export function Home() {
                             <img src={users} />
                             Clientes
                         </div>
-                        <div className="card-conteudo">                        
+                        <div className="card-conteudo">  
+                        <div>                  
                             <div className="em-dia-card">
                                 <span>
                                     Em dia
@@ -50,6 +51,7 @@ export function Home() {
                                 <span className="valor-inadimplentes-card"> {dadosRelatorio.qtdClientesInadimplentes} </span>
                             </div>
                         </div>
+                        </div>    
                     </div>
                     <div className="card-cobranca">
                         <div className="header-cobrancas">

@@ -2,6 +2,8 @@ import "./style.css";
 import React from "react";
 import search from "../../../assets/search.svg";
 import printer from "../../../assets/printer.svg";
+import toggleOn from "../../../assets/toggle-on.svg";
+import toggleOff from "../../../assets/toggle-off.svg";
 import { Header } from "../../../components/header";
 import { useStores } from "../../../context";
 
@@ -66,7 +68,7 @@ export function ListarCobranca() {
               <td>Nome do cliente</td>
               <td>{element.descricao}</td>
               <td>R${element.valor}</td>
-              <td>{element.status}</td>
+              <td>{element.status=='PAGO'? <img src={toggleOn}/>: element.status=='PENDENTE'? <img src={toggleOff}/>: ''}{element.status}</td>
               <td>{element.vencimento}</td>
               <td>
                 <img src={printer} />
@@ -85,7 +87,6 @@ export function ListarCobranca() {
             qtdDePaginas.forEach(item => {
                 return (
                 <a href="#" className="pagina">
-                    {console.log(`olá ${item}`)}
                     {item}
                 </a>
             )}        

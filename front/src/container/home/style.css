@@ -16,7 +16,7 @@
 .header-cobrancas img {
   margin-right: 0.5em;
 }
-.card-cliente,
+.card-cliente > div,
 .card-cobranca {
   margin: 5em 0em 0em 3.5em;
   box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.1);
@@ -27,6 +27,13 @@
   background-color: white;
   border-radius: 0px 0px 16px 16px;
   padding: 2em 4em;
+}
+.card-cliente .card-conteudo {
+  margin-top: 0em;
+  border-radius: 0px 0px 16px 16px;
+}
+.card-cliente .header-clientes {
+  border-radius: 16px 16px 0px 0px ;
 }
 .em-dia-card,
 .pagas-card {
