@@ -12,9 +12,9 @@ export function ListarCobranca() {
   const [offset, setOffset] = React.useState(0)
   const [dadosCobranca, setDadosCobranca] = React.useState("")
   const { token } = useStores();
-  const [paginas, setPaginas] = React.useState(1)
-  const [paginaAtual, setPaginaAtual] = React.useState(1)
-  const qtdDePaginas = []
+  const [paginasCobranca, setPaginasCobranca] = React.useState(1)
+  const [paginaCobrancaAtual, setPaginaCobrancaAtual] = React.useState(1)
+  const qtdDePaginasCobranca = []
 
 
   React.useEffect(() => {
@@ -27,14 +27,18 @@ export function ListarCobranca() {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data.dados.clientes)
             setDadosCobranca(data.dados.cobrancas);
+            setPaginasCobranca(data.dados.totalDePaginas);
+            setPaginaCobrancaAtual(data.dados.paginaAtual);
         })
         .catch(err => {
             console.error(err);
         })
   }, [offset])
-
+  for(let i=0; i<paginasCobranca; i++) {
+    qtdDePaginasCobranca.push(i+1)
+  }
+  console.log(dadosCobranca)
   return (
     <div className="conteudo">
       <Header className="header-branco"></Header>
@@ -65,10 +69,10 @@ export function ListarCobranca() {
         { [...dadosCobranca].map((element) => {
           return (                          
             <tr className="tabela-body">
-              <td>Nome do cliente</td>
-              <td>{element.descricao}</td>
+              <td>{element.iddocliente}</td>
+              <td>{element.descricao.length>10? element.descricao.slice(0, 9) + "...": element.descricao}</td>
               <td>R${element.valor}</td>
-              <td>{element.status=='PAGO'? <img src={toggleOn}/>: element.status=='PENDENTE'? <img src={toggleOff}/>: ''}{element.status}</td>
+              <td>{element.status=='PAGO'? <img src={toggleOn} />: element.status=='PENDENTE'? <img src={toggleOff}/>: ''}{element.status}</td>
               <td>{element.vencimento}</td>
               <td>
                 <img src={printer} />
@@ -83,8 +87,8 @@ export function ListarCobranca() {
           &#60;
         </a>
         {   
-            paginas!=1?
-            qtdDePaginas.forEach(item => {
+            paginasCobranca!=1?
+            qtdDePaginasCobranca.forEach(item => {
                 return (
                 <a href="#" className="pagina">
                     {item}

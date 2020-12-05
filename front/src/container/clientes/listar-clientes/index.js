@@ -15,8 +15,8 @@ export function ListarClientes() {
 const [offset, setOffset] = React.useState(0)
 const [busca, setBusca] = React.useState("");
 const [dadosClientes, setDadosClientes] = React.useState("")
-const [paginas, setPaginas] = React.useState(1)
-const [paginaAtual, setPaginaAtual] = React.useState(1)
+const [paginasCliente, setPaginasCliente] = React.useState(1)
+const [paginaClienteAtual, setPaginaClienteAtual] = React.useState(1)
 const { token } = useStores();
 
 const qtdDePaginas = [];
@@ -33,10 +33,9 @@ React.useEffect(()=>{
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data.dados.clientes)
             setDadosClientes(data.dados.clientes);
-            setPaginas(data.dados.totalDePaginas);
-            setPaginaAtual(data.dados.paginaAtual);
+            setPaginasCliente(data.dados.totalDePaginas);
+            setPaginaClienteAtual(data.dados.paginaAtual);
         })
         .catch(err => {
             console.error(err);
@@ -45,10 +44,9 @@ React.useEffect(()=>{
         fetch(`http://localhost:8081/clientes?busca=${busca}&clientesPorPagina=10&offset=${offset}`)
         .then(res => res.json())
         .then(data => {
-            console.log(data.dados.clientes)
             setDadosClientes(data.dados.clientes);
-            setPaginas(data.dados.totalDePaginas);
-            setPaginaAtual(data.dados.paginaAtual);
+            setPaginasCliente(data.dados.totalDePaginas);
+            setPaginaClienteAtual(data.dados.paginaAtual);
         })
         .catch(err => {
             console.error(err);
@@ -56,7 +54,7 @@ React.useEffect(()=>{
     }
 }, [offset])
 
-for(let i=0; i<paginas; i++) {
+for(let i=0; i<paginasCliente; i++) {
   qtdDePaginas.push(i+1)
 }
   return (
@@ -130,7 +128,7 @@ for(let i=0; i<paginas; i++) {
           &#60;
         </a>
         {   
-            paginas!=1?
+            paginasCliente != 1?
             qtdDePaginas.forEach(item => {
                 return (
                 <a href="#" className="pagina">
