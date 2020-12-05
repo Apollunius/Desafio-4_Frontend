@@ -8,32 +8,37 @@ import { Header } from "../../../components/header";
 import { useStores } from "../../../context";
 
 export function ListarCobranca() {
-
-  const [offset, setOffset] = React.useState(0)
-  const [dadosCobranca, setDadosCobranca] = React.useState("")
+  const [offset, setOffset] = React.useState(0);
+  const [dadosCobranca, setDadosCobranca] = React.useState("");
   const { token } = useStores();
-  const [paginas, setPaginas] = React.useState(1)
-  const [paginaAtual, setPaginaAtual] = React.useState(1)
-  const qtdDePaginas = []
-
+  const [paginas, setPaginas] = React.useState(0);
+  const [paginaAtual, setPaginaAtual] = React.useState(1);
+  const qtdDePaginas = [];
 
   React.useEffect(() => {
-    fetch(`http://localhost:8081/cobrancas?cobrancasPorPagina=10&offset=${offset}`, {
-            method: 'GET',
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: token && `Bearer ${token}`,
-            }
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data.dados.clientes)
-            setDadosCobranca(data.dados.cobrancas);
-        })
-        .catch(err => {
-            console.error(err);
-        })
-  }, [offset])
+    fetch(
+      `http://localhost:8081/cobrancas?cobrancasPorPagina=10&offset=${offset}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token && `Bearer ${token}`,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setPaginas(data.dados.totalDePaginas);
+        setDadosCobranca(data.dados.cobrancas);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, [offset]);
+
+  for (let i = 0; i < paginas; i++) {
+    qtdDePaginas.push(i + 1);
+  }
 
   return (
     <div className="conteudo">
@@ -62,39 +67,53 @@ export function ListarCobranca() {
           </tr>
         </thead>
         <tbody>
-        { [...dadosCobranca].map((element) => {
-          return (                          
-            <tr className="tabela-body">
-              <td>Nome do cliente</td>
-              <td>{element.descricao}</td>
-              <td>R${element.valor}</td>
-              <td>{element.status=='PAGO'? <img src={toggleOn}/>: element.status=='PENDENTE'? <img src={toggleOff}/>: ''}{element.status}</td>
-              <td>{element.vencimento}</td>
-              <td>
-                <img src={printer} />
-              </td>
-            </tr>
-          )}
-        )}
+          {[...dadosCobranca].map((element) => {
+            return (
+              <tr className="tabela-body">
+                <td>Nome do cliente</td>
+                <td>{element.descricao}</td>
+                <td>
+                  {new Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                  }).format(element.valor / 100)}
+                </td>
+                <td>
+                  {element.status === "PAGO" ? (
+                    <img src={toggleOn} />
+                  ) : element.status === "PENDENTE" ? (
+                    <img src={toggleOff} />
+                  ) : (
+                    ""
+                  )}
+                  {element.status}
+                </td>
+                <td>
+                  {element.vencimento
+                    .replace("T03:00:00.000Z", "")
+                    .replace(/[^\d]/g, "")
+                    .replace(/(\d{4})(\d{2})(\d{2})/, "$3/$2/$1")}
+                </td>
+                <td>
+                  <img src={printer} />
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
       <div className="mudar-pagina">
         <a href="#" className="pagina voltar">
           &#60;
         </a>
-        {   
-            paginas!=1?
-            qtdDePaginas.forEach(item => {
-                return (
-                <a href="#" className="pagina">
-                    {item}
-                </a>
-            )}        
-            ):
-            <a href="#" className="pagina">
-                1
-            </a>
-        }
+        <a href="#" className="pagina">
+         
+          {paginas !== 1
+            ? qtdDePaginas.forEach((item) => {
+                return { item };
+              })
+            : 1}
+        </a>
         <a href="#" className="pagina avancar">
           &#62;
         </a>

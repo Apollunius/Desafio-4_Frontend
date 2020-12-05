@@ -33,10 +33,12 @@ React.useEffect(()=>{
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data.dados.clientes)
+			console.log(offset)
+            // console.log(data.dados.clientes)
             setDadosClientes(data.dados.clientes);
             setPaginas(data.dados.totalDePaginas);
-            setPaginaAtual(data.dados.paginaAtual);
+			setPaginaAtual(data.dados.paginaAtual);
+			console.log(data.dados)
         })
         .catch(err => {
             console.error(err);
@@ -112,8 +114,8 @@ for(let i=0; i<paginas; i++) {
                             </td>
                         </tr>
                     </td>
-                    <td>R${element.cobrancasFeitas}</td>
-                    <td>R${element.cobrancasRecebidas}</td>
+                    <td>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(element.cobrancasFeitas/100)}</td>
+                    <td>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(element.cobrancasRecebidas/100)}</td>
                     <td>{element.estaInadimplente? 'INADIMPLENTE':'EM DIA'}</td>
                     <td>
                     <Link to="/clientes/editar">
@@ -134,8 +136,7 @@ for(let i=0; i<paginas; i++) {
             qtdDePaginas.forEach(item => {
                 return (
                 <a href="#" className="pagina">
-                    {console.log(`olá ${item}`)}
-                    {item}
+                   {item}
                 </a>
             )}        
             ):
