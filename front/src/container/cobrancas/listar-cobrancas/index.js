@@ -28,9 +28,9 @@ export function ListarCobranca() {
     )
       .then((res) => res.json())
       .then((data) => {
-        setDadosClientes(data.dados.cobrancas);
-        setPaginasCliente(data.dados.totalDePaginas);
-        setPaginaClienteAtual(data.dados.paginaAtual);
+        setDadosCobranca(data.dados.cobrancas);
+        setPaginasCobranca(data.dados.totalDePaginas);
+        setPaginaCobrancaAtual(data.dados.paginaAtual);
       });
   }
 
