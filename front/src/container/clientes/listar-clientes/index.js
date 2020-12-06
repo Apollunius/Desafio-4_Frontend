@@ -22,13 +22,10 @@ const [paginasCliente, setPaginasCliente] = React.useState(1)
 const [paginaClienteAtual, setPaginaClienteAtual] = React.useState(1)
 const { token, setIdDoCliente, idDoCliente } = useStores();
 
-async function onChange(page) {
-  const pagina = page - 1;
+async function onChange() {
 
   await fazerRequisicaoComBody(
-    `https://cubos-desafio-4.herokuapp.com/clientes?clientesPorPagina=10&offset=${
-      pagina * 10
-    }`,
+    `http://localhost:8081/clientes?clientesPorPagina=10&offset=${offset}`,
     "GET",
     undefined,
     token
@@ -77,7 +74,7 @@ React.useEffect(()=>{
           console.error(err);
     })
   }
-}, [])
+}, [offset])
 
   return (
     <div className="conteudo">
@@ -152,13 +149,13 @@ React.useEffect(()=>{
       </table>
       <div className="mudar-pagina">
         <div className="pagination">
-              <Pagination
-                size="small"
-                total={paginasCliente * 10}
-                pageSize={10}
-                onChange={onChange}
-              />
-            </div>
+          <Pagination
+            size="small"
+            total={paginasCliente * 10}
+            pageSize={10}
+            onChange={onChange}
+          />
+        </div>
       </div>
     </div>
   );

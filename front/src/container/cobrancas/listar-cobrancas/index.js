@@ -6,6 +6,9 @@ import toggleOn from "../../../assets/toggle-on.svg";
 import toggleOff from "../../../assets/toggle-off.svg";
 import { Header } from "../../../components/header";
 import { useStores } from "../../../context";
+import { Pagination } from "antd";
+import "antd/dist/antd.css";
+import { fazerRequisicaoComBody } from "../../../helpers/fetch"
 
 export function ListarCobranca() {
 
@@ -14,8 +17,22 @@ export function ListarCobranca() {
   const { token } = useStores();
   const [paginasCobranca, setPaginasCobranca] = React.useState(1)
   const [paginaCobrancaAtual, setPaginaCobrancaAtual] = React.useState(1)
-  const qtdDePaginasCobranca = []
 
+  async function onChange() {
+  
+    await fazerRequisicaoComBody(
+      `http://localhost:8081/clientes?clientesPorPagina=10&offset=${offset}`,
+      "GET",
+      undefined,
+      token
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setDadosClientes(data.dados.cobrancas);
+        setPaginasCliente(data.dados.totalDePaginas);
+        setPaginaClienteAtual(data.dados.paginaAtual);
+      });
+  }
 
   React.useEffect(() => {
     fetch(`http://localhost:8081/cobrancas?cobrancasPorPagina=10&offset=${offset}`, {
@@ -35,9 +52,7 @@ export function ListarCobranca() {
             console.error(err);
         })
   }, [offset])
-  for(let i=0; i<paginasCobranca; i++) {
-    qtdDePaginasCobranca.push(i+1)
-  }
+
   console.log(dadosCobranca)
   return (
     <div className="conteudo">
@@ -86,25 +101,14 @@ export function ListarCobranca() {
         </tbody>
       </table>
       <div className="mudar-pagina">
-        <a href="#" className="pagina voltar">
-          &#60;
-        </a>
-        {   
-            paginasCobranca!=1?
-            qtdDePaginasCobranca.forEach(item => {
-                return (
-                <a href="#" className="pagina">
-                    {item}
-                </a>
-            )}        
-            ):
-            <a href="#" className="pagina">
-                1
-            </a>
-        }
-        <a href="#" className="pagina avancar">
-          &#62;
-        </a>
+        <div className="pagination">
+          <Pagination
+            size="small"
+            total={paginasCobranca * 10}
+            pageSize={10}
+            onChange={onChange}
+          />
+          </div>
       </div>
     </div>
   );
