@@ -33,18 +33,9 @@ React.useEffect(()=>{
         })
         .then(res => res.json())
         .then(data => {
-<<<<<<< HEAD
-			console.log(offset)
-            // console.log(data.dados.clientes)
-            setDadosClientes(data.dados.clientes);
-            setPaginas(data.dados.totalDePaginas);
-			setPaginaAtual(data.dados.paginaAtual);
-			console.log(data.dados)
-=======
             setDadosClientes(data.dados.clientes);
             setPaginasCliente(data.dados.totalDePaginas);
             setPaginaClienteAtual(data.dados.paginaAtual);
->>>>>>> e85853bd4382713158d1426414122e266c1de086
         })
         .catch(err => {
             console.error(err);
@@ -142,11 +133,7 @@ for(let i=0; i<paginasCliente; i++) {
             qtdDePaginas.forEach(item => {
                 return (
                 <a href="#" className="pagina">
-<<<<<<< HEAD
-                   {item}
-=======
                     {item}
->>>>>>> e85853bd4382713158d1426414122e266c1de086
                 </a>
             )}        
             ):
