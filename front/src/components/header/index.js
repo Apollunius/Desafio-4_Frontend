@@ -21,7 +21,7 @@ export function Header(props) {
           })
           .then(res => res.json())
           .then(data => {
-              setDadosRelatorio(data.dados.relatorio);
+			  setDadosRelatorio(data.dados.relatorio);
           })
           .catch(err => {
               console.error(err);

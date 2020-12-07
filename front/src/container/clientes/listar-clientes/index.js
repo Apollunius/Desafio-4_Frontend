@@ -95,7 +95,6 @@ React.useEffect(()=>{
             required
           />
           <button className="botao-listar-cobranca" type="button" onClick={()=> {
-            console.log(busca)
           }}>
             <img src={search} alt="lupa" />
             Buscar
