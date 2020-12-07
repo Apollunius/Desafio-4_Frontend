@@ -124,7 +124,6 @@ export function CriarCobranca() {
                 name="primary"
                 id="btn-margin"
                 onClick={() => {
-                  console.log(valorCobranca.includes(','),valorCobranca.replace(/[^\d]/g, ""), valorCobranca*10000, valorCobranca)
                   const novoValor = valorCobranca.includes(',')? valorCobranca.replace(/[^\d]/g, "") * 100 : valorCobranca.replace(/[^\d]/g, "")*10000;
                   
                   fazerRequisicaoComBody(
