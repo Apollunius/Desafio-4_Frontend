@@ -93,9 +93,7 @@ export function EditarCliente() {
                       console.error(err);
                     });
 
-                  statusEditar === 200
-                    ? alert("Cliente editado com sucesso!")
-                    : alert("CPF está inválido!!");
+                  statusEditar === 200 ? alert("Cliente editado com sucesso!") : alert("Dados do cliente foram editados!");
                 }}
               >
                 Salvar Alterações

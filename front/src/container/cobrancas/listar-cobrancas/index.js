@@ -88,7 +88,9 @@ export function ListarCobranca() {
               /(\d{4})(\d{2})(\d{2})/,
               "$3/$2/$1"
             );
+            const novoValor = element.valor/10000;
             return (
+              
               <tr className="tabela-body">
                 <td>{element.iddocliente}</td>
                 <td>
@@ -97,10 +99,11 @@ export function ListarCobranca() {
                     : element.descricao}
                 </td>
                 <td>
+                  {console.log(novoValor)}
                   {new Intl.NumberFormat("pt-BR", {
                     style: "currency",
                     currency: "BRL",
-                  }).format(element.valor / 100)}
+                  }).format(novoValor)}
                 </td>
                 <td className="status">
                   {element.status == "PAGO" ? (

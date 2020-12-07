@@ -131,8 +131,8 @@ React.useEffect(()=>{
                             </td>
                         </tr>
                     </td>
-                    <td>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(element.cobrancasFeitas/100)}</td>
-                    <td>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(element.cobrancasRecebidas/100)}</td>
+                    <td>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(element.cobrancasFeitas/10000)}</td>
+                    <td>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(element.cobrancasRecebidas/10000)}</td>
                     <td>{element.estaInadimplente? 'INADIMPLENTE':'EM DIA'}</td>
                     <td>
                     <Link to="/clientes/editar">
